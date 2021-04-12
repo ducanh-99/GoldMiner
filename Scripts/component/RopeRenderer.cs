@@ -17,7 +17,6 @@ public class RopeRenderer : MonoBehaviour
     }
 
     public void RenderLine(Vector3 end_position,bool enable_renderer) {
-        Debug.Log("Render Line ");
         if (enable_renderer) {
             if (!line_renderer.enabled) {
                 line_renderer.enabled = true;
