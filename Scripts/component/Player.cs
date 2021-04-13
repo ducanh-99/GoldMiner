@@ -17,7 +17,6 @@ public class Player : MonoBehaviour {
     void Update() {
 
     }
-
     private void FixedUpdate() {
         float h = Input.GetAxis("Horizontal");
         r2.AddForce((Vector2.right) * speed * h);

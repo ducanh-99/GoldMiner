@@ -7,14 +7,16 @@ using UnityEngine.SceneManagement;
 using System;
 
 public class LevelPlay : MonoBehaviour {
-    public Button btn_pass;
-
-    // Start is called before the first frame update
-    void Start() {
-        btn_pass.onClick.AddListener(PressBtnPass);
+    private void Start() {
+        LoadLevel();
     }
+    
+    public  void LoadLevel() {
+        int level_index = LevelsManager.Instance.GetCurrentLevel().index;
+        Debug.Log("LevelPlay Level Index :"+ level_index);
+         var level_prefab = Resources.Load("Levels/Level"+level_index) as GameObject;
+         var level_content = Instantiate(level_prefab, transform.position, transform.rotation);
 
-    private void PressBtnPass() {
-        SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_RESULT_SCENE);
+        InLevelManager.Instance.EnterLevel();
     }
 }
