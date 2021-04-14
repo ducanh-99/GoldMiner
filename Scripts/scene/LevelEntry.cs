@@ -19,7 +19,7 @@ public class LevelEntry : MonoBehaviour {
         btn_start.onClick.AddListener(PressBtnStart);
         level = LevelsManager.Instance.GetCurrentLevel();
         Debug.Log("Level Entry : " + level.ToString());
-        header_text.text = "Level " + (level.index+1);
+        header_text.text = "Level " + (level.index);
         score_text.text = "Required Score :" + level.required_score;
         time_text.text = "Time :" + level.time;
         distance_text.text = "Distance :" + level.distance;
@@ -27,6 +27,7 @@ public class LevelEntry : MonoBehaviour {
     }
 
     private void PressBtnStart() {
+        InLevelManager.Instance.SetupLevel();
         SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_STORE_SCENE);
     }
 }

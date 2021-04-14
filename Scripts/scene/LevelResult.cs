@@ -16,29 +16,24 @@ public class LevelResult : MonoBehaviour {
     public Text earning_score_text;
     public Text used_time_text;
     public Text passed_text;
-    public bool is_passed;
-    public int earning_score;
-    // Start is called before the first frame update
-    void Start() {
+
+
+    void Awake() {
         btn_main_menu.onClick.AddListener(PressBtnMainMenu);
         btn_main_action.onClick.AddListener(PressBtnMainAction);
         level = LevelsManager.Instance.GetCurrentLevel();
-        System.Random r = new System.Random();
 
-        
-        is_passed = (r.Next(0,5)%2==0?true:false);
-        earning_score = level.required_score + r.Next(0, 100) * (is_passed ? 1 : -1);
-        Debug.Log("Is passed " + is_passed + earning_score);
-
-        main_action_text.text = is_passed ? "Next Level" : "Play Again";
+        main_action_text.text = InLevelManager.Instance.is_passed ? "Next Level" : "Play Again";
         header_text.text = "Level " + (level.index + 1);
-        earning_score_text.text = "Earning :" + earning_score + "  /  " + level.required_score;
-        used_time_text.text = "Time :" + r.Next(0, level.time) + "  /  " + level.time;
-        passed_text.text = "Is_Passed  :" + (is_passed?"Yes":"No");
+
+        earning_score_text.text = "Earning :" + InLevelManager.Instance.score + "  /  " + level.required_score;
+        used_time_text.text = "Time :" + (level.time- InLevelManager.Instance.time) + "  /  " + level.time;
+        passed_text.text = "Is_Passed  :" + (InLevelManager.Instance.is_passed?"Yes":"No");
     }
 
     private void PressBtnMainAction() {
-        if (is_passed) LevelsManager.Instance.NextLevel();
+        if (InLevelManager.Instance.is_passed)
+            LevelsManager.Instance.NextLevel();
         SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_ENTRY_SCENE);
     }
 

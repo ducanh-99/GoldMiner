@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6499354079694070907}
   - component: {fileID: 6499354079694070904}
   - component: {fileID: 6499354079694070905}
+  - component: {fileID: 1135698973}
   m_Layer: 0
   m_Name: GoldBig
-  m_TagString: Untagged
+  m_TagString: GoldBig
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: df1647b0b71630f48b70841496c029a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -136,3 +137,20 @@ PolygonCollider2D:
       - {x: 0.255, y: -0.78}
       - {x: 0.49499997, y: -0.58}
       - {x: 0.615, y: -0.5}
+--- !u!114 &1135698973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499354079694070902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b058105c10a6a495f9259e6ae7a1eaa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is_move_follow: 0
+  maxY: 0
+  score: 0
+  weight: 0
+  target: {fileID: 0}

@@ -16,13 +16,19 @@ public class LevelsManager : MonoBehaviour
 	public int furthest_level_index;
 	public int choosed_level_index;
 
-	public static LevelsManager Instance {
-		get { return instance ?? (instance = new GameObject("LevelsManager").AddComponent<LevelsManager>()); }
+	public static LevelsManager Instance{
+		get {
+			if (instance == null) {
+				instance = new GameObject("LevelsManager").AddComponent<LevelsManager>();
+				DontDestroyOnLoad(instance.gameObject);
+			}
+			return instance;
+		}
 	}
 
     private void Awake() {
 		FILE_PATH = Application.persistentDataPath + "/levels.dat";
-		choosed_level_index = 0;
+		choosed_level_index = 1;
 		LoadFromFile();
 		Debug.Log("Levels List" + list.Count);
     }
@@ -33,12 +39,13 @@ public class LevelsManager : MonoBehaviour
 		if (PlayerPrefs.HasKey(SETUP_LEVEL_KEY)) return;
 
 		list = new List<Level>();
-		list.Add(new Level(0, 100,200,10));
-		list.Add(new Level(1, 100, 200, 20));
-		list.Add(new Level(2, 100, 200, 30));
-		list.Add(new Level(3, 100, 200, 40));
-		list.Add(new Level(4, 100, 200, 50));
-		furthest_level_index = 0 ;
+		list.Add(new Level(1, 100,200,10));
+		list.Add(new Level(2, 100, 200, 20));
+		list.Add(new Level(3, 100, 200, 30));
+		list.Add(new Level(4, 100, 200, 40));
+		list.Add(new Level(5, 100, 200, 50));
+		furthest_level_index = 1 ;
+		choosed_level_index = 1;
 
 		PlayerPrefs.SetInt(SETUP_LEVEL_KEY, 1);
 	}
@@ -47,7 +54,9 @@ public class LevelsManager : MonoBehaviour
     }
 
 	public Level GetCurrentLevel() {
-		return list[choosed_level_index];
+		Debug.Log("Choosed Level :"+choosed_level_index);
+		Debug.Log("List Count :" + list.Count);
+		return list[choosed_level_index-1];
     }
 
 	public void Reset() {
@@ -70,6 +79,10 @@ public class LevelsManager : MonoBehaviour
 	public void NextLevel() {
 		furthest_level_index++;
 		choosed_level_index = furthest_level_index;
+    }
+
+	public int GetLevelCount() {
+		return list.Count;
     }
 
 	private void SaveToFile() {

@@ -18,9 +18,13 @@ public class SceneHandler : MonoBehaviour
     private static string previous_scene;
 
     public static SceneHandler Instance {
-        // Here we use the ?? operator, to return 'instance' if 'instance' does not equal null
-        // otherwise we assign instance to a new component and return that
-        get { return instance ?? (instance = new GameObject("SceneHandler").AddComponent<SceneHandler>()); }
+        get {
+            if (instance == null) {
+                instance = new GameObject("SceneHandler").AddComponent<SceneHandler>();
+                DontDestroyOnLoad(instance.gameObject);
+            }
+            return instance;
+        }
     }
     private void Awake() {
         scene_history.Push(MAIN_MENU_SCENE);
