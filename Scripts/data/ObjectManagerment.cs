@@ -40,15 +40,18 @@ public class ObjectManagerment : MonoBehaviour
         {"MouseMiner", new ValueObject{score=50, weight=5}},
         {"SecretBag",  new ValueObject{score=200, weight=3}},
         {"TreasureChest",  new ValueObject{score=500, weight=5}},
-  
+
         {"OreSeam", new ValueObject{score=10, weight=1}},
     };
 
 
     private ObjectManagerment() { }
-    public static ObjectManagerment Instance {
-        get {
-            if (instance == null) {
+    public static ObjectManagerment Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
                 instance = new GameObject("ObjectManagerment").AddComponent<ObjectManagerment>();
                 DontDestroyOnLoad(instance.gameObject);
             }
@@ -57,7 +60,7 @@ public class ObjectManagerment : MonoBehaviour
     }
     public ValueObject GetValueObject(string tag)
     {
-        Debug.Log("Find Tag :"+ tag);
+        Debug.Log("Find Tag :" + tag);
         if (ObjectDictionary.ContainsKey(tag))
         {
             return ObjectDictionary[tag];
