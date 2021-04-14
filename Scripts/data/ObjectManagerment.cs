@@ -42,7 +42,6 @@ public class ObjectManagerment : MonoBehaviour
         {"TreasureChest",  new ValueObject{score=500, weight=5}},
   
         {"OreSeam", new ValueObject{score=10, weight=1}},
-        {"GoldMedium", new ValueObject{score=100, weight=5}}
     };
 
 
