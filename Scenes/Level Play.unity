@@ -245,19 +245,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 234886589, guid: 699b90114a62f574b9b7a7cc76491f1a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.054
-      objectReference: {fileID: 0}
-    - target: {fileID: 234886589, guid: 699b90114a62f574b9b7a7cc76491f1a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.084
-      objectReference: {fileID: 0}
-    - target: {fileID: 3281282251516240668, guid: 699b90114a62f574b9b7a7cc76491f1a,
-        type: 3}
-      propertyPath: start_positition
-      value: 
-      objectReference: {fileID: 815333371}
     - target: {fileID: 3281282252263840130, guid: 699b90114a62f574b9b7a7cc76491f1a,
         type: 3}
       propertyPath: m_Name
@@ -320,12 +307,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 699b90114a62f574b9b7a7cc76491f1a, type: 3}
---- !u!4 &815333371 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 234886589, guid: 699b90114a62f574b9b7a7cc76491f1a,
-    type: 3}
-  m_PrefabInstance: {fileID: 401412160}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &879586510
 PrefabInstance:
   m_ObjectHideFlags: 0
