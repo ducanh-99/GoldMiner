@@ -102,6 +102,7 @@ public class Hook : MonoBehaviour {
 
                     miner.UpdateState((int)Miner.MINER_STATE.CHEER_UP);
                     Destroy(this.dragged_object);
+                    this.dragged_object = null;
                 }
                 else {
                     miner.UpdateState((int)Miner.MINER_STATE.IDLE);
@@ -125,6 +126,7 @@ public class Hook : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col) {
         if (!move_down) return;
+        if (this.dragged_object != null) return;
         GameObject col_object = col.gameObject;
 
         ValueObject value_object = ObjectManagerment.Instance.GetValueObject(col_object.tag);
@@ -133,7 +135,7 @@ public class Hook : MonoBehaviour {
             Debug.Log("Value Object :" + value_object.score);
 
             move_down = false;
-            col_object.GetComponent<ObjectScripts>().SetTarget(transform);
+          //  col_object.GetComponent<ObjectScripts>().SetTarget(transform);
             this.dragged_object = col_object;
            
 
