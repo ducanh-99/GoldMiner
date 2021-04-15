@@ -137,7 +137,7 @@ public class Hook : MonoBehaviour {
             move_down = false;
           //  col_object.GetComponent<ObjectScripts>().SetTarget(transform);
             this.dragged_object = col_object;
-           
+            move_speed -= 0.1f * value_object.weight;
 
         }
     }

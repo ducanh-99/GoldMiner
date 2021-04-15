@@ -56,8 +56,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\component\BackgroundScroller.cs" />
+     <Compile Include="Assets\Scripts\component\DynamicObjectScripts.cs" />
      <Compile Include="Assets\Scripts\component\Hook.cs" />
      <Compile Include="Assets\Scripts\component\HookWire.cs" />
+     <Compile Include="Assets\Scripts\component\Item.cs" />
      <Compile Include="Assets\Scripts\component\LevelButton.cs" />
      <Compile Include="Assets\Scripts\component\LevelHeader.cs" />
      <Compile Include="Assets\Scripts\component\LevelStatusBar.cs" />
