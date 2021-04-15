@@ -8,7 +8,7 @@ public class RopeRenderer : MonoBehaviour
     [SerializeField]
     private Transform start_positition;
 
-    private float line_width = 0.05f;
+    private float line_width = 0.08f;
     // Start is called before the first frame update
     void Awake() {
         line_renderer = GetComponent<LineRenderer>();

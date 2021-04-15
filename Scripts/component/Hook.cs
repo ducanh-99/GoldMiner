@@ -21,6 +21,7 @@ public class Hook : MonoBehaviour {
     private bool can_rotate;
 
     private GameObject dragged_object = null;
+    public Miner miner;
     private void Awake() {
     }
     // Start is called before the first frame update
@@ -29,6 +30,7 @@ public class Hook : MonoBehaviour {
         initial_move_speed = move_speed;
 
         can_rotate = true;
+        miner = GameObject.FindGameObjectWithTag("Miner").GetComponent<Miner>();
 
     }
 
@@ -37,6 +39,7 @@ public class Hook : MonoBehaviour {
         Rotate();
         GetInput();
         MoveRope();
+        CheckMoveOutCameraView();
     }
 
     void Rotate() {
@@ -58,10 +61,13 @@ public class Hook : MonoBehaviour {
     }
 
     void GetInput() {
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetKeyDown(KeyCode.DownArrow)
+            && miner.GetState() == (int)Miner.MINER_STATE.IDLE) { 
             if (can_rotate) {
                 can_rotate = false;
                 move_down = true;
+
+                miner.UpdateState((int)Miner.MINER_STATE.DRAG);
             }
         }
     }
@@ -86,28 +92,50 @@ public class Hook : MonoBehaviour {
             if (temp.y >= initial_y) {
                 can_rotate = true;
                 move_speed = initial_move_speed;
+             
                 if (this.dragged_object!=null) {
                  
                     ValueObject value= ObjectManagerment.Instance.GetValueObject(this.dragged_object.tag);
                     if (value != null)
                         InLevelManager.Instance.Earning(value);
                     Debug.Log("Destroy This Object "+ this.dragged_object.tag);
+
+                    miner.UpdateState((int)Miner.MINER_STATE.CHEER_UP);
                     Destroy(this.dragged_object);
+                    this.dragged_object = null;
                 }
+                else {
+                    miner.UpdateState((int)Miner.MINER_STATE.IDLE);
+                }
+            }
+        }
+    }
+
+    bool CheckPositionOutBound() {
+        return gameObject.GetComponent<Renderer>().isVisible;
+    }
+
+    void CheckMoveOutCameraView() {
+        if (miner.GetState()==(int)Miner.MINER_STATE.DRAG) {
+            if (!CheckPositionOutBound()) {
+                move_down = false;
             }
         }
     }
 
 
     void OnTriggerEnter2D(Collider2D col) {
+        if (!move_down) return;
+        if (this.dragged_object != null) return;
         GameObject col_object = col.gameObject;
 
         ValueObject value_object = ObjectManagerment.Instance.GetValueObject(col_object.tag);
-        if (value_object != null) {
 
+        if (value_object != null) {
+            Debug.Log("Value Object :" + value_object.score);
 
             move_down = false;
-            col_object.GetComponent<ObjectScripts>().SetTarget(transform);
+          //  col_object.GetComponent<ObjectScripts>().SetTarget(transform);
             this.dragged_object = col_object;
            
 

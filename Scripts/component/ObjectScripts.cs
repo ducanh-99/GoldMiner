@@ -38,6 +38,7 @@ public class ObjectScripts : MonoBehaviour
         {
             Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
             is_move_follow = true;
+            SetTarget(col.gameObject.transform);
 
         }
     }
