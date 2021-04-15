@@ -9,7 +9,7 @@ public class ObjectScripts : MonoBehaviour
     // Start is called before the first frame update
     public bool is_move_follow = false;
 
-    public Transform target=null;
+    public Transform target = null;
 
     void Start()
     {
@@ -22,7 +22,8 @@ public class ObjectScripts : MonoBehaviour
 
     }
 
-    public void SetTarget(Transform target) {
+    public void SetTarget(Transform target)
+    {
         Debug.Log("Set Target ");
         is_move_follow = true;
         this.target = target;
@@ -39,12 +40,13 @@ public class ObjectScripts : MonoBehaviour
             Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
             is_move_follow = true;
             SetTarget(col.gameObject.transform);
-
         }
     }
 
-    void moveFlowTarget() {
-        if (is_move_follow && target!=null) {
+    protected void moveFlowTarget()
+    {
+        if (is_move_follow && target != null)
+        {
             transform.position = new Vector3(
                 target.transform.position.x,
                 target.transform.position.y - gameObject.GetComponent<Collider2D>().bounds.size.y / 2,
