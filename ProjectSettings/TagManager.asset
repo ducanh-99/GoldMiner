@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - New tag
+  - GoldBig
+  - GoldMedium
+  - Hook
+  - HookWire
+  - ExplodeBarrel
+  - GemGreen
+  - GemRed
+  - GemViolet
+  - GemYellow
+  - GoldHuge
+  - GoldSmall
+  - Mouse
+  - MouseDiamond
+  - MouseExplode
+  - MouseMiner
+  - SecretBag
+  - SkeletonBody
+  - SkeletonLimb
+  - SkeletonSkull
+  - StoneBig
+  - StoneDiamond
+  - StoneMedium
+  - StoneSmall
+  - TreasureChest
+  - Miner
+  - Seller
+  - GemOrange
+  - Diamond
+  - OreSeam
+  - DestinationFlag
+  - RailRoad
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
