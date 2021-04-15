@@ -15,7 +15,7 @@ public class LevelPlay : MonoBehaviour {
         int level_index = LevelsManager.Instance.GetCurrentLevel().index;
         Debug.Log("LevelPlay Level Index :"+ level_index);
          var level_prefab = Resources.Load("Levels/Level"+level_index) as GameObject;
-         var level_content = Instantiate(level_prefab, transform.position, transform.rotation);
+         var level_content = Instantiate(level_prefab, new Vector3(3,0,0), transform.rotation);
 
         InLevelManager.Instance.EnterLevel();
     }

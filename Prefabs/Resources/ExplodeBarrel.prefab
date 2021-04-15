@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7541244355963825041}
   - component: {fileID: 8861997355922512658}
   - component: {fileID: 2866635121057630783}
+  - component: {fileID: 8478180639982256182}
   m_Layer: 0
   m_Name: ExplodeBarrel
   m_TagString: ExplodeBarrel
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 7eb66ca648596e74582154057cd0338d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92,7 +93,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -126,3 +127,17 @@ PolygonCollider2D:
       - {x: 0.27557728, y: -0.40057525}
       - {x: 0.345, y: -0.26}
       - {x: 0.3761548, y: -0.099424765}
+--- !u!114 &8478180639982256182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4826786750279599966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b058105c10a6a495f9259e6ae7a1eaa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is_move_follow: 0
+  target: {fileID: 0}

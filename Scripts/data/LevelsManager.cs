@@ -10,7 +10,7 @@ public class LevelsManager : MonoBehaviour
 {
 	public static string SETUP_LEVEL_KEY = "setup_level";
 	private static LevelsManager instance;
-	public static string FILE_PATH;
+	public static string FILE_PATH = Application.persistentDataPath + "/levels.dat";
 
 	public List<Level> list;
 	public int furthest_level_index;
@@ -27,7 +27,7 @@ public class LevelsManager : MonoBehaviour
 	}
 
     private void Awake() {
-		FILE_PATH = Application.persistentDataPath + "/levels.dat";
+	
 		choosed_level_index = 1;
 		LoadFromFile();
 		Debug.Log("Levels List" + list.Count);
@@ -39,11 +39,11 @@ public class LevelsManager : MonoBehaviour
 		if (PlayerPrefs.HasKey(SETUP_LEVEL_KEY)) return;
 
 		list = new List<Level>();
-		list.Add(new Level(1, 100,200,10));
-		list.Add(new Level(2, 100, 200, 20));
-		list.Add(new Level(3, 100, 200, 30));
-		list.Add(new Level(4, 100, 200, 40));
-		list.Add(new Level(5, 100, 200, 50));
+		list.Add(new Level(1, 100,2000,1000));
+		list.Add(new Level(2, 100, 2000, 1000));
+		list.Add(new Level(3, 100, 2000, 1000));
+		list.Add(new Level(4, 100, 2000, 1000));
+		list.Add(new Level(5, 100, 2000, 1000));
 		furthest_level_index = 1 ;
 		choosed_level_index = 1;
 

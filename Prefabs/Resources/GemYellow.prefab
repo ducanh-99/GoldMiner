@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1834953954210980322}
   - component: {fileID: 8436699317232960425}
   - component: {fileID: 8728636202764863510}
+  - component: {fileID: 8284749681661813483}
   m_Layer: 0
   m_Name: GemYellow
   m_TagString: GemYellow
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 7d682fb6a3f839449ac3365a4696531f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92,7 +93,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -155,3 +156,17 @@ PolygonCollider2D:
       - {x: 0.089999996, y: -1.0699999}
       - {x: 0.19999999, y: -0.89}
       - {x: 0.26, y: -0.79999995}
+--- !u!114 &8284749681661813483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7342391219614796724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b058105c10a6a495f9259e6ae7a1eaa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is_move_follow: 0
+  target: {fileID: 0}

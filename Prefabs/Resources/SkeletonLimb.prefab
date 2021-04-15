@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1442544845677352655}
   - component: {fileID: 356769730064551244}
   - component: {fileID: 5781584093717260799}
+  - component: {fileID: 249839014979194999}
   m_Layer: 0
   m_Name: SkeletonLimb
   m_TagString: SkeletonLimb
@@ -70,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 80f74b1dd5b3f4049bf5f2951f609144, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92,7 +93,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -115,8 +116,8 @@ PolygonCollider2D:
       - {x: 0.46507022, y: -0.038430404}
       - {x: 0.5625327, y: -0.026196923}
       - {x: 0.556867, y: -0.016196884}
-      - {x: 0.56, y: 0.175}
-      - {x: 0.53999996, y: 0.21499999}
+      - {x: 0.55537856, y: 0.15105566}
+      - {x: 0.5238244, y: 0.21260555}
       - {x: 0.51, y: 0.235}
       - {x: 0.43193206, y: 0.23186614}
       - {x: 0.35999998, y: 0.17246464}
@@ -127,18 +128,36 @@ PolygonCollider2D:
       - {x: -0.21373364, y: 0.10052763}
       - {x: -0.25010574, y: 0.11757656}
       - {x: -0.33821794, y: 0.098228425}
-      - {x: -0.42, y: 0.16499999}
-      - {x: -0.48999998, y: 0.225}
-      - {x: -0.51, y: 0.235}
-      - {x: -0.53, y: 0.235}
+      - {x: -0.43848655, y: 0.16499999}
+      - {x: -0.47222564, y: 0.19309175}
+      - {x: -0.48999998, y: 0.22260559}
+      - {x: -0.5123108, y: 0.22302784}
+      - {x: -0.5276893, y: 0.21345016}
       - {x: -0.54120106, y: 0.13679534}
       - {x: -0.5586094, y: 0.083092816}
       - {x: -0.53806794, y: 0.00873232}
       - {x: -0.4543342, y: -0.04739385}
-      - {x: -0.43466938, y: -0.13082136}
+      - {x: -0.4230644, y: -0.055651102}
+      - {x: -0.32766265, y: -0.051184084}
+      - {x: -0.29139888, y: -0.07335499}
       - {x: -0.511201, y: -0.16126768}
       - {x: -0.5143342, y: -0.23186614}
       - {x: -0.40313306, y: -0.2130631}
-      - {x: -0.31, y: -0.16499999}
-      - {x: -0.18253262, y: -0.16619693}
-      - {x: -0.12626636, y: -0.16499999}
+      - {x: -0.37184292, y: -0.17836668}
+      - {x: -0.31, y: -0.15542226}
+      - {x: -0.1848436, y: -0.13506933}
+      - {x: -0.12857734, y: -0.16499999}
+--- !u!114 &249839014979194999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5626161949447509370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b058105c10a6a495f9259e6ae7a1eaa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is_move_follow: 0
+  target: {fileID: 0}

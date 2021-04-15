@@ -60,18 +60,19 @@ public class InLevelManager : MonoBehaviour
 		}
 	}
 
+	public void ReachDestination() {
+		CheckPass();
+
+		SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_RESULT_SCENE);
+	}
 
 	public int GetScore() {
 		return score;
     }
 	public void TimeOut() {
-		CheckPass();
-		Debug.Log("Score :" + score);
-		Debug.Log("Time :" + time);
-		Debug.Log("Pass :" + is_passed);
-
+		is_passed = false;
 		SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_RESULT_SCENE);
-    }
+	}
 
 
 
