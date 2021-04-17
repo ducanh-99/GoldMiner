@@ -41,6 +41,12 @@ public class ObjectScripts : MonoBehaviour
             SetTarget(col.gameObject.transform);
 
         }
+        if (col.tag == "Explosion")
+        {
+            Debug.Log(col.gameObject + " : " + gameObject.name);
+            Destroy(gameObject);
+        }
+        Debug.Log(col.gameObject + " : " + gameObject.name);
     }
 
     public void moveFlowTarget() {

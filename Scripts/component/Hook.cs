@@ -22,6 +22,7 @@ public class Hook : MonoBehaviour {
 
     private GameObject dragged_object = null;
     public Miner miner;
+    public GameObject explosion;
     private void Awake() {
     }
     // Start is called before the first frame update
@@ -74,6 +75,7 @@ public class Hook : MonoBehaviour {
     }
 
     public void GetDynamite() {
+        Instantiate(explosion, transform.position, transform.rotation);
         Destroy(dragged_object);
         move_down = false;
         move_speed = 10f;
