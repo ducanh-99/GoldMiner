@@ -43,7 +43,7 @@ public class ObjectScripts : MonoBehaviour
         }
     }
 
-    void moveFlowTarget() {
+    public void moveFlowTarget() {
         if (is_move_follow && target!=null) {
             transform.position = new Vector3(
                 target.transform.position.x,
