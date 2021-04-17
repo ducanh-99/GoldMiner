@@ -47,7 +47,7 @@ public class InLevelManager : MonoBehaviour
 		this.dynamite += number;
     }
 	public void Earning(ValueObject value) {
-		Debug.Log("Value Tag :" + value.tag);
+	//	Debug.Log("Value Tag :" + value.tag);
 		int value_score = value.score;
 		if (value.tag.Contains("Diamond")) {
 			value_score *= PowerupManager.Instance.POLISH_DIAMOND_FACTOR;

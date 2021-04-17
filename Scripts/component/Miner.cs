@@ -13,12 +13,19 @@ public class Miner : MonoBehaviour {
         THROW_DYNAMITE,//5
     };
 
+    public Hook hook;
+
     public float speed = 10f, maxSpeed = 3;
     public Rigidbody2D r2;
     public int miner_state;
 
-    public bool is_cheering;
-    public float cheer_up_time=0.1f;
+    public bool is_start_count_down;
+    public float remain_time;
+    public const float CHEER_UP_DURATION = 0.15f;
+    public const float THROW_DYNAMITE_DURATION = 0.2f;
+
+    public float again_throw_time;
+    public const float AGAIN_THROW_DYNAMITE = 2.0f;
 
     public Animator anim;
 
@@ -27,7 +34,12 @@ public class Miner : MonoBehaviour {
     void Start() {
         r2 = gameObject.GetComponent<Rigidbody2D>();
         miner_state = (int)MINER_STATE.IDLE;
+        is_start_count_down = false;
+        again_throw_time = 0;
         anim = gameObject.GetComponent<Animator>();
+
+        hook = GameObject.FindGameObjectWithTag("Hook").GetComponent<Hook>();
+
     }
 
 
@@ -36,6 +48,7 @@ public class Miner : MonoBehaviour {
             || miner_state == (int)MINER_STATE.IDLE;
     }
     public void UpdateState(int state) {
+        anim.SetInteger("state", state);
         miner_state = state;
     }
 
@@ -44,24 +57,56 @@ public class Miner : MonoBehaviour {
     }
     // Update is called once per frame
     void Update() {
-        anim.SetInteger("state", miner_state);
-    }
-    private void FixedUpdate() {
-    
-        if (miner_state ==(int) Miner.MINER_STATE.CHEER_UP) {
-            is_cheering = true;
-            StartCoroutine("CountDownCheerUp");
-        };
+        
     }
 
-    public IEnumerator CountDownCheerUp() {
-        while (is_cheering) {
-            is_cheering = false;
-            yield return new WaitForSeconds(cheer_up_time);
+    void CountDownThrowDynamite() {
+        if (miner_state != (int)MINER_STATE.THROW_DYNAMITE) return;
+        Debug.Log("is_start_count_down:" + is_start_count_down);
+        Debug.Log("Remain Time :" + remain_time);
+        if (!is_start_count_down) {
+            is_start_count_down = true;
+            remain_time = THROW_DYNAMITE_DURATION;
         }
-        if (!is_cheering) {
-            UpdateState((int)Miner.MINER_STATE.IDLE);
-            is_cheering = true;
+        else {
+            if (remain_time <= 0) {
+                is_start_count_down = false;
+                hook.GetDynamite();
+                UpdateState((int)MINER_STATE.IDLE);
+            }
         }
     }
+
+    public void CountDownCheerUp() {
+        if (miner_state != (int)MINER_STATE.CHEER_UP) return;
+        if (!is_start_count_down) {
+            is_start_count_down = true;
+            remain_time = CHEER_UP_DURATION;
+        }
+        else {
+            if (remain_time <= 0) {
+                is_start_count_down = false;
+    
+                UpdateState((int)MINER_STATE.IDLE);
+            }
+        }
+    }
+    private void FixedUpdate() {
+
+        remain_time -= Time.deltaTime;
+        again_throw_time -= Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.UpArrow)) {
+            if (miner_state==(int)MINER_STATE.DRAG && again_throw_time <= 0 ) {
+                UpdateState((int)MINER_STATE.THROW_DYNAMITE);
+            //    hook.GetDynamite();
+
+            }
+        }
+
+        CountDownThrowDynamite();
+        CountDownCheerUp();
+  
+    }
+
 }

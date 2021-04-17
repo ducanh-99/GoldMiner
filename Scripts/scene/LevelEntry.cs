@@ -16,6 +16,8 @@ public class LevelEntry : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+
+        Debug.Log("Start Level Entry ");
         btn_start.onClick.AddListener(PressBtnStart);
         level = LevelsManager.Instance.GetCurrentLevel();
         Debug.Log("Level Entry : " + level.ToString());
@@ -23,7 +25,6 @@ public class LevelEntry : MonoBehaviour {
         score_text.text = "Required Score :" + level.required_score;
         time_text.text = "Time :" + level.time;
         distance_text.text = "Distance :" + level.distance;
-  
     }
 
     private void PressBtnStart() {

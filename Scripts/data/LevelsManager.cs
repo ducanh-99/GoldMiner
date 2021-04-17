@@ -40,8 +40,8 @@ public class LevelsManager : MonoBehaviour
 
 		list = new List<Level>();
 		list.Add(new Level(1, 100,2000,1000));
-		list.Add(new Level(2, 100, 2000, 1000));
-		list.Add(new Level(3, 100, 2000, 1000));
+		list.Add(new Level(2, 222, 2222, 2222));
+		list.Add(new Level(3, 333, 3333, 3333));
 		list.Add(new Level(4, 100, 2000, 1000));
 		list.Add(new Level(5, 100, 2000, 1000));
 		furthest_level_index = 1 ;

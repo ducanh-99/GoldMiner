@@ -11,7 +11,7 @@ public class Hook : MonoBehaviour {
 
 
     public float move_speed = 3f;
-    public float initial_move_speed = 3f;
+    public static float HOOK_SPEED = 3f;
 
     public float min_y = -5.0f;
     private float initial_y;
@@ -27,7 +27,6 @@ public class Hook : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         initial_y = transform.position.y;
-        initial_move_speed = move_speed;
 
         can_rotate = true;
         miner = GameObject.FindGameObjectWithTag("Miner").GetComponent<Miner>();
@@ -61,17 +60,25 @@ public class Hook : MonoBehaviour {
     }
 
     void GetInput() {
+
         if (Input.GetKeyDown(KeyCode.DownArrow)
             && miner.GetState() == (int)Miner.MINER_STATE.IDLE) { 
             if (can_rotate) {
                 can_rotate = false;
                 move_down = true;
 
+                Debug.Log("Update Miner State From Hook : DRAG");
                 miner.UpdateState((int)Miner.MINER_STATE.DRAG);
             }
         }
     }
 
+    public void GetDynamite() {
+        Destroy(dragged_object);
+        move_down = false;
+        move_speed = 10f;
+
+    }
     void MoveRope() {
         if (can_rotate) {
             return;
@@ -91,20 +98,21 @@ public class Hook : MonoBehaviour {
 
             if (temp.y >= initial_y) {
                 can_rotate = true;
-                move_speed = initial_move_speed;
+                move_speed = HOOK_SPEED;
              
                 if (this.dragged_object!=null) {
                  
                     ValueObject value= ObjectManagerment.Instance.GetValueObject(this.dragged_object.tag);
                     if (value != null)
                         InLevelManager.Instance.Earning(value);
-               
 
+                    Debug.Log("Update Miner State From Hook : CHEER_UP");
                     miner.UpdateState((int)Miner.MINER_STATE.CHEER_UP);
                     Destroy(this.dragged_object);
                     this.dragged_object = null;
                 }
                 else {
+                    Debug.Log("Update Miner State From Hook : ");
                     miner.UpdateState((int)Miner.MINER_STATE.IDLE);
                 }
             }
@@ -132,12 +140,15 @@ public class Hook : MonoBehaviour {
         ValueObject value_object = ObjectManagerment.Instance.GetValueObject(col_object.tag);
 
         if (value_object != null) {
-            Debug.Log("Value Object :" + value_object.score);
+            //Debug.Log("Value Object :" + value_object.score);
 
             move_down = false;
           //  col_object.GetComponent<ObjectScripts>().SetTarget(transform);
             this.dragged_object = col_object;
-           
+            move_speed -= value_object.weight;
+
+            move_speed *= PowerupManager.Instance.MINER_STRENGTH_FACTOR;
+           // Debug.Log("Move Speed Of Hook :" + move_speed);
 
         }
     }

@@ -30,6 +30,7 @@ public class LevelStore : MonoBehaviour {
     public static float DELAY_TIME = 0.3f;
 
     void Start() {
+
         btn_start.onClick.AddListener(PressBtnStart);
 
         item_count = PowerupManager.Instance.GetSaleCount();
@@ -42,6 +43,7 @@ public class LevelStore : MonoBehaviour {
         LoadStore();
     }
 
+    
 
     private void PressBtnStart() {
         SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_PLAY_SCENE);
@@ -127,11 +129,7 @@ public class LevelStore : MonoBehaviour {
             Powerup choosed_powerup = items[choose_index];
             remain_buy_time = DELAY_TIME;
             if (!choosed_powerup.is_bought ) {
-                if (PowerupManager.Instance.BuyItem(choosed_powerup)) {
-                    choosed_powerup.is_bought = true;
-                }
-                 
-
+                PowerupManager.Instance.BuyItem(choosed_powerup);
             }
         }
     }

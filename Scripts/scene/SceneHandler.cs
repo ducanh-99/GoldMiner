@@ -32,8 +32,10 @@ public class SceneHandler : MonoBehaviour
 
     public void OpenScene(string toScene) {
         scene_history.Push(toScene);
-        Debug.Log("Current Scene " + SceneManager.GetActiveScene().name);
-        PlayerPrefs.SetString(PREVIOUS_SCENE_KEY, SceneManager.GetActiveScene().name);
+        string pre_scene = SceneManager.GetActiveScene().name;
+        Debug.Log("Current Scene " + pre_scene);
+        PlayerPrefs.SetString(PREVIOUS_SCENE_KEY, pre_scene);
+       
         SceneManager.LoadScene(toScene);
 
     }

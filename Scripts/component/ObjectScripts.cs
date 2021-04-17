@@ -23,7 +23,7 @@ public class ObjectScripts : MonoBehaviour
     }
 
     public void SetTarget(Transform target) {
-        Debug.Log("Set Target ");
+
         is_move_follow = true;
         this.target = target;
     }
@@ -36,7 +36,7 @@ public class ObjectScripts : MonoBehaviour
     {
         if (col.gameObject.name == "Hook")
         {
-            Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+           // Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
             is_move_follow = true;
             SetTarget(col.gameObject.transform);
 

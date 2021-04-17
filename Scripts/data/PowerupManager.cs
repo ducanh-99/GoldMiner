@@ -26,19 +26,19 @@ public class Powerup
 public class PowerupManager : MonoBehaviour
 {
 
-    public int STONE_COLLECTION_FACTOR;
-    public int POLISH_DIAMOND_FACTOR;
-    public  int TIME_PLUS_ADDITION;
-    public int MINER_STRENGTH_FACTOR;
-    public int BARROW_SPEED_FACTOR;
-    public int LUCKY_FLOWER_FACTOR = 1;
+    public int STONE_COLLECTION_FACTOR=1;
+    public int POLISH_DIAMOND_FACTOR=1;
+    public  int TIME_PLUS_ADDITION=15;
+    public int MINER_STRENGTH_FACTOR=1;
+    public int BARROW_SPEED_FACTOR=1;
+    public int LUCKY_FLOWER_FACTOR=1;
 
     private static PowerupManager instance;
     public static int SALE_COUNT = 4;
     private static List<Powerup> sales = new List<Powerup>();
 
 
-    private static Dictionary<string, Powerup> powers = new Dictionary<string, Powerup>()
+    private static Dictionary<string, Powerup> powers_dict = new Dictionary<string, Powerup>()
     {
         {
             "Dynamite",
@@ -83,6 +83,7 @@ public class PowerupManager : MonoBehaviour
 
     public bool BuyItem(Powerup item) {
         if (item.price > PlayerManager.Instance.GetMoney()) return false;
+        item.is_bought = true;
         PlayerManager.Instance.AddMoney(-item.price);
 
         switch (item.tag) {
@@ -96,16 +97,16 @@ public class PowerupManager : MonoBehaviour
                 InLevelManager.Instance.AddTime(TIME_PLUS_ADDITION);
                 break;
             case "PowerDrink":
-                MINER_STRENGTH_FACTOR = 2;
+                MINER_STRENGTH_FACTOR = 8;
                 break;
             case "Oil":
-                BARROW_SPEED_FACTOR = 2;
+                BARROW_SPEED_FACTOR = 3;
                 break;
             case "Dynamite":
                 InLevelManager.Instance.AddDynamite(1);
                 break;
             case "LuckyFlower":
-                LUCKY_FLOWER_FACTOR = 2;
+                LUCKY_FLOWER_FACTOR = 3;
                 break;
 
             default:
@@ -124,15 +125,23 @@ public class PowerupManager : MonoBehaviour
         MINER_STRENGTH_FACTOR = 1;
         BARROW_SPEED_FACTOR = 1;
         LUCKY_FLOWER_FACTOR = 1;
+
+        foreach (KeyValuePair<string, Powerup> entry in powers_dict) {
+            entry.Value.is_bought = false;
+        }
+    }
+
+    public List<Powerup> GetSaleItems() {
+        return sales;
     }
     public List<Powerup> ChoosePowerUpToSell() {
 
         ResetPowerUp();
         sales = new List<Powerup>();
-        List<Powerup> powers_l = new List<Powerup>(powers.Values);
+        List<Powerup> powers_l = new List<Powerup>(powers_dict.Values);
         int last_i = 0;
         int temp;
-        int powers_count = powers.Count;
+        int powers_count = powers_dict.Count;
         for (int i = 0; i < SALE_COUNT; i++) {
             temp = Random.Range(last_i, powers_count - (SALE_COUNT - i)+1);
     
@@ -148,9 +157,9 @@ public class PowerupManager : MonoBehaviour
     public Powerup GetPowerUp(string tag)
     {
      
-        if (powers.ContainsKey(tag))
+        if (powers_dict.ContainsKey(tag))
         {
-            return powers[tag];
+            return powers_dict[tag];
         }
         return null;
     }
