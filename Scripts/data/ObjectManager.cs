@@ -27,12 +27,12 @@ public class ObjectManagerment : MonoBehaviour
     {
         {"GoldSmall",  new ValueObject{score =50, weight=HOOK_SPEED*0.2f}}, // GoldSmall's Weight Is Base Weight;
         {"GoldMedium",  new ValueObject{score=100, weight=HOOK_SPEED*0.4f}},
-        {"GoldBig", new ValueObject{score=250, weight=HOOK_SPEED*0.98f}},
-        {"GoldHuge",  new ValueObject{score=500, weight=HOOK_SPEED*0.99f}},
+        {"GoldBig", new ValueObject{score=250, weight=HOOK_SPEED*0.6f}},
+        {"GoldHuge",  new ValueObject{score=500, weight=HOOK_SPEED*0.6f}},
 
-        {"StoneSmall",  new ValueObject{score=5, weight=HOOK_SPEED*0.2f}},
-        {"StoneMedium", new ValueObject{score=10, weight=HOOK_SPEED*0.7f}},
-        {"StoneBig",  new ValueObject{score=20, weight=HOOK_SPEED*0.9f}},
+        {"StoneSmall",  new ValueObject{score=5, weight=HOOK_SPEED*0.5f}},
+        {"StoneMedium", new ValueObject{score=10, weight=HOOK_SPEED*0.65f}},
+        {"StoneBig",  new ValueObject{score=20, weight=HOOK_SPEED*0.8f}},
 
         {"SkeletonBody",  new ValueObject{score=10, weight=HOOK_SPEED*0.1f}},
         {"SkeletonSkull", new ValueObject{score=10, weight=HOOK_SPEED*0.1f}},
@@ -49,7 +49,7 @@ public class ObjectManagerment : MonoBehaviour
         {"StoneDiamond",  new ValueObject{score=610, weight=HOOK_SPEED*0.8f}},
 
         {"Mouse",  new ValueObject{score=10, weight=HOOK_SPEED*0.1f}},
-        {"MouseDiamond",  new ValueObject{score=610, weight=HOOK_SPEED*0.9f}},
+        {"MouseDiamond",  new ValueObject{score=610, weight=HOOK_SPEED*0.1f}},
         {"MouseMiner", new ValueObject{score=50, weight=HOOK_SPEED*0.7f}},
         {"SecretBag",  new ValueObject{score=200, weight=HOOK_SPEED*0.5f}},
         {"TreasureChest",  new ValueObject{score=500, weight=HOOK_SPEED*0.8f}},

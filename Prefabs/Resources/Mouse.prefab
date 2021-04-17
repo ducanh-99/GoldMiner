@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6955597271102342319}
   - component: {fileID: 2200153681559948746}
-  - component: {fileID: 1752218300105493512}
   - component: {fileID: 2222517399449641210}
+  - component: {fileID: 5621202498858434092}
   m_Layer: 0
   m_Name: Mouse
   m_TagString: Mouse
@@ -83,20 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1752218300105493512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3117258385531275884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b058105c10a6a495f9259e6ae7a1eaa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  is_move_follow: 0
-  target: {fileID: 0}
 --- !u!60 &2222517399449641210
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -152,3 +138,20 @@ PolygonCollider2D:
       - {x: 0.25935417, y: -0.060266457}
       - {x: 0.28660962, y: 0.040108398}
       - {x: 0.27422634, y: 0.11657784}
+--- !u!114 &5621202498858434092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3117258385531275884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d094ba2267d3a9ba566a12fcf0a842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is_move_follow: 0
+  target: {fileID: 0}
+  max_dictance: 0
+  min_distance: 0
+  move_speed: 2

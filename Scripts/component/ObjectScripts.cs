@@ -41,9 +41,15 @@ public class ObjectScripts : MonoBehaviour
             SetTarget(col.gameObject.transform);
 
         }
+        if (col.tag == "Explosion")
+        {
+            Debug.Log(col.gameObject + " : " + gameObject.name);
+            Destroy(gameObject);
+        }
+        Debug.Log(col.gameObject + " : " + gameObject.name);
     }
 
-    void moveFlowTarget() {
+    public void moveFlowTarget() {
         if (is_move_follow && target!=null) {
             transform.position = new Vector3(
                 target.transform.position.x,

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6955597271102342319}
   - component: {fileID: 2200153681559948746}
-  - component: {fileID: 7901377794745926544}
   - component: {fileID: 6733184671217249578}
+  - component: {fileID: 4287757947862647715}
   m_Layer: 0
   m_Name: MouseDiamond
   m_TagString: MouseDiamond
@@ -83,20 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7901377794745926544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3117258385531275884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b058105c10a6a495f9259e6ae7a1eaa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  is_move_follow: 0
-  target: {fileID: 0}
 --- !u!60 &6733184671217249578
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -158,3 +144,20 @@ PolygonCollider2D:
       - {x: 0.124545485, y: -0.16020559}
       - {x: 0.19072677, y: -0.19911523}
       - {x: 0.22831754, y: -0.22466819}
+--- !u!114 &4287757947862647715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3117258385531275884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d094ba2267d3a9ba566a12fcf0a842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is_move_follow: 0
+  target: {fileID: 0}
+  max_dictance: 0
+  min_distance: 0
+  move_speed: 0
