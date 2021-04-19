@@ -71,7 +71,7 @@ public class Miner : MonoBehaviour {
         else {
             if (remain_time <= 0) {
                 is_start_count_down = false;
-                hook.GetDynamite();
+                hook.GetExplode();
                 UpdateState((int)MINER_STATE.IDLE);
             }
         }

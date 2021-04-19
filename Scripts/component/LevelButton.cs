@@ -10,14 +10,19 @@ public class LevelButton : MonoBehaviour {
     public Text index_text;
     //public Text scoreText;
     public Button btn;
+    public Image background_image;
 
 
 
 
     // Start is called before the first frame update
     void Start() {
-        index_text.text = "Level "+level.index;
+   //     Debug.Log("Load Level Button" + level.index + " " + level.star);
+
+        if (level.star == 0) index_text.text = "";
+            else  index_text.text = ""+level.index;
         btn.onClick.AddListener(LoadLevel);
+        background_image.sprite = Resources.Load("level_star_"+level.star, typeof(Sprite)) as Sprite;
     }
 
     public void LoadLevel() {

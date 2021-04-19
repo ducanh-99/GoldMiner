@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7541244355963825041}
   - component: {fileID: 8861997355922512658}
   - component: {fileID: 2866635121057630783}
-  - component: {fileID: 8478180639982256182}
+  - component: {fileID: 6727319056084130451}
   m_Layer: 0
   m_Name: ExplodeBarrel
   m_TagString: ExplodeBarrel
@@ -127,7 +127,7 @@ PolygonCollider2D:
       - {x: 0.27557728, y: -0.40057525}
       - {x: 0.345, y: -0.26}
       - {x: 0.3761548, y: -0.099424765}
---- !u!114 &8478180639982256182
+--- !u!114 &6727319056084130451
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4826786750279599966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b058105c10a6a495f9259e6ae7a1eaa8, type: 3}
+  m_Script: {fileID: 11500000, guid: d9784f7051fee8a409cbec725c3eabae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   is_move_follow: 0

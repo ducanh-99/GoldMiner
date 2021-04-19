@@ -10,11 +10,13 @@ public class Level
     public int required_score;
     public int distance;
     public int time;
+    public int star; // star=0 : lock, star =1,2,3
     public Level(int index,int required_score,int distance,int time) {
         this.index = index;
         this.required_score = required_score;
         this.distance = distance;
         this.time = time;
+        this.star = index % 3;
     }
 
     override

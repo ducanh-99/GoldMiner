@@ -20,6 +20,7 @@ public class Explosion : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+
         Debug.Log(collider.gameObject.name + " : " + gameObject.name);
     }
 }

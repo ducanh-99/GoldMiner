@@ -5,23 +5,24 @@ using UnityEngine;
 public class DynamicObjectScripts : ObjectScripts
 {
     // Start is called before the first frame update
-    private const float MAX_DISTANCE = 2;
+    private const float MAX_DISTANCE = 3;
     public float max_dictance;
     public float min_distance;
     public float move_speed;
 
-    private bool is_rotate;
+    private bool move_right;
     void Start()
     {
         max_dictance = transform.position.x + MAX_DISTANCE;
         min_distance = transform.position.x - MAX_DISTANCE;
-        is_rotate = true;
+        move_right = true;
         move_speed = 1;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+      
         if (is_move_follow == false)
         {
             Move();
@@ -30,13 +31,15 @@ public class DynamicObjectScripts : ObjectScripts
         {
             moveFlowTarget();
         }
+
     }
 
 
     void Move()
     {
         Vector3 temp = transform.position;
-        if (is_rotate)
+        Debug.Log("Transform Position X" + transform.position.x);
+        if (move_right)
         {
             if (temp.x < max_dictance)
             {
@@ -44,7 +47,9 @@ public class DynamicObjectScripts : ObjectScripts
             }
             else
             {
-                is_rotate = false;
+                move_right = false;
+                Debug.Log("Move Right False");
+                //  transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
             }
         }
         else
@@ -55,7 +60,8 @@ public class DynamicObjectScripts : ObjectScripts
             }
             else
             {
-                is_rotate = true;
+                move_right = true;
+               // transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
             }
         }
     }

@@ -9,10 +9,11 @@ using System;
 public class LevelEntry : MonoBehaviour {
     public Button btn_start;
     public Level level;
-    public Text header_text;
+    public Text level_index_text;
     public Text score_text;
     public Text time_text;
     public Text distance_text;
+    public Text dynamite_text;
 
     // Start is called before the first frame update
     void Start() {
@@ -21,10 +22,11 @@ public class LevelEntry : MonoBehaviour {
         btn_start.onClick.AddListener(PressBtnStart);
         level = LevelsManager.Instance.GetCurrentLevel();
         Debug.Log("Level Entry : " + level.ToString());
-        header_text.text = "Level " + (level.index);
-        score_text.text = "Required Score :" + level.required_score;
-        time_text.text = "Time :" + level.time;
-        distance_text.text = "Distance :" + level.distance;
+        level_index_text.text = "" + (level.index);
+        score_text.text = "" + level.required_score;
+        time_text.text = "" + level.time;
+        distance_text.text = "" + level.distance + "m";
+        dynamite_text.text = "" + InLevelManager.Instance.dynamite;
     }
 
     private void PressBtnStart() {

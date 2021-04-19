@@ -32,7 +32,7 @@ public class ObjectScripts : MonoBehaviour
     {
         moveFlowTarget();
     }
-    void OnTriggerEnter2D(Collider2D col)
+    public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.name == "Hook")
         {

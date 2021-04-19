@@ -9,8 +9,7 @@ using System;
 public class LevelStore : MonoBehaviour {
     public Button btn_start;
     
-    public GameObject items_container;
-    public GameObject item_pattern;
+    public GameObject item_detail;
     public GameObject canvas;
 
     public Text item_des_text;
@@ -29,6 +28,7 @@ public class LevelStore : MonoBehaviour {
     public float remain_buy_time = 0;
     public static float DELAY_TIME = 0.3f;
 
+    public Text[] item_text = new Text[4];
     void Start() {
 
         btn_start.onClick.AddListener(PressBtnStart);
@@ -37,8 +37,6 @@ public class LevelStore : MonoBehaviour {
         items = PowerupManager.Instance.ChoosePowerUpToSell();
 
         choose_index = 0;
-        items_go = new List<GameObject>();
-        item_dimensions = item_pattern.GetComponent<RectTransform>().rect;
 
         LoadStore();
     }
@@ -52,35 +50,10 @@ public class LevelStore : MonoBehaviour {
     
 
     void LoadStore() {
-        SetUpGrid();
-        LoadIcons();
-
-    }
-
-    void SetUpGrid() {
-        GridLayoutGroup grid = items_container.AddComponent<GridLayoutGroup>();
-        grid.cellSize = new Vector2(item_dimensions.width, item_dimensions.height);
-        grid.childAlignment = TextAnchor.MiddleCenter;
-        grid.spacing = spacing;
-    }
-
-    void LoadIcons() {
-        // Debug.Log("NumberOfIcons " + numberOfIcons);
-        for (int i = 0; i < item_count; i++) {
-
-            Powerup power = items[i];
-            GameObject item_container = Instantiate(item_pattern) as GameObject;
-            item_container.transform.SetParent(canvas.transform, false);
-            item_container.transform.SetParent(items_container.transform);
-            item_container.name = "Item " + i;
-
-            StoreItem store_item = item_container.GetComponent<StoreItem>();
-            store_item.price_text.text = power.price+"" ;
-            store_item.image.GetComponent < Image >().sprite = 
-                Resources.Load(power.sprite, typeof(Sprite)) as Sprite;
-            items_go.Add(item_container);
-
+        for (int i = 0; i < items.Count; i++) {
+            item_text[i].text = items[i].name;
         }
+
     }
 
     // Update is called once per frame

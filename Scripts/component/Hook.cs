@@ -74,7 +74,8 @@ public class Hook : MonoBehaviour {
         }
     }
 
-    public void GetDynamite() {
+ 
+    public void GetExplode() {
         Instantiate(explosion, transform.position, transform.rotation);
         Destroy(dragged_object);
         move_down = false;

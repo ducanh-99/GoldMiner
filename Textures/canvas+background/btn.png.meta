@@ -1,13 +1,61 @@
 fileFormatVersion: 2
-guid: 8d8f2403d9e51064bae61fe812840c08
+guid: f4a226ff7b19cf44a9409e29ee1af550
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8420864902249895252
-    second: game_status_canvas_0
+      213: 2764668512825024977
+    second: btn_0
   - first:
-      213: -3663699147708296475
-    second: game_status_canvas_1
+      213: 3186890131568273898
+    second: btn_1
+  - first:
+      213: 195538063029053130
+    second: btn_2
+  - first:
+      213: 9175271614404327553
+    second: btn_start
+  - first:
+      213: 6173015121095560629
+    second: btn_4
+  - first:
+      213: -6703704019443396417
+    second: btn_5
+  - first:
+      213: 6161990892485111929
+    second: btn_6
+  - first:
+      213: -4134125935371680760
+    second: btn_7
+  - first:
+      213: -6034471550544892882
+    second: btn_8
+  - first:
+      213: -7325131546991974736
+    second: btn_9
+  - first:
+      213: 6354888290859250555
+    second: btn_10
+  - first:
+      213: -4249273965047634632
+    second: btn_11
+  - first:
+      213: -8224069085252050593
+    second: btn_12
+  - first:
+      213: -4807593789303534464
+    second: btn_13
+  - first:
+      213: 1343629312112192763
+    second: btn_14
+  - first:
+      213: -7091778742213187419
+    second: btn_15
+  - first:
+      213: -5194987997851222764
+    second: btn_16
+  - first:
+      213: 5305215848229509847
+    second: btn_17
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -46,7 +94,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -105,13 +153,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: game_status_canvas_0
+      name: btn_0
       rect:
         serializedVersion: 2
-        x: 69
-        y: 162
-        width: 43
-        height: 9
+        x: 66
+        y: 264
+        width: 674
+        height: 257
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,29 +167,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: caa27dfacf3132b80800000000000000
-      internalID: -8420864902249895252
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: game_status_canvas_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2
-        width: 162
-        height: 158
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e212f8490de72dc0800000000000000
-      internalID: -3663699147708296475
+      spriteID: 1d1a4a45d531e5620800000000000000
+      internalID: 2764668512825024977
       vertices: []
       indices: 
       edges: []

@@ -11,14 +11,14 @@ public class MainMenu : MonoBehaviour
     public Button btn_continue;
     public Button btn_new_game;
     public Button btn_setting;
-    public Button btn_instruction;
+  //  public Button btn_instruction;
     public Button btn_exit;
 
     private void Awake() {
         btn_continue.onClick.AddListener(PressContinueBtn);
         btn_new_game.onClick.AddListener(PressNewGameBtn);
         btn_setting.onClick.AddListener(PressSettingBtn);
-        btn_instruction.onClick.AddListener(PressInstructionBtn);
+     //   btn_instruction.onClick.AddListener(PressInstructionBtn);
         btn_exit.onClick.AddListener(PressExitBtn);
     }
 

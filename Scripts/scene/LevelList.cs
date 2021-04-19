@@ -14,17 +14,22 @@ public class LevelList : MonoBehaviour
     public GameObject this_canvas;
     public Rect container_dimensions;
     public Rect item_dimensions;
+    public Rect screen_dimensions;
     public int current_level_count;
     public Vector2 icon_spacing;
-
     List<Level> levels;
+
+
+    public Button btn_back;
     // Start is called before the first frame update
     void Start()
     {
+        btn_back.onClick.AddListener(GoBack);
+
         current_level_count = 0;
         container_dimensions = levels_container.GetComponent<RectTransform>().rect;
         item_dimensions = level_item_pattern.GetComponent<RectTransform>().rect;
-
+        screen_dimensions = this_canvas.GetComponent<RectTransform>().rect;
         int maxInARow = Mathf.FloorToInt(
             (container_dimensions.width +icon_spacing.x)
             / (item_dimensions.width+icon_spacing.x));
@@ -44,6 +49,10 @@ public class LevelList : MonoBehaviour
        // Debug.Log("maxInACol" + maxInACol);
         LoadPanels(totalPages); 
     }
+
+    void GoBack() {
+        SceneHandler.Instance.GoBack();
+    }
     void LoadPanels(int numberOfPanels) {
        // Debug.Log(numberOfPanels);
         GameObject panel_clone = Instantiate(levels_container) as GameObject;
@@ -54,7 +63,11 @@ public class LevelList : MonoBehaviour
             panel.transform.SetParent(this_canvas.transform, false);
             panel.transform.SetParent(levels_container.transform);
             panel.name = "Page " + i;
-            panel.GetComponent<RectTransform>().localPosition = new Vector2(container_dimensions.width * (i - 1), 0);
+            panel.GetComponent<RectTransform>().localPosition = 
+                new Vector2(
+                    screen_dimensions.width * (i - 1)
+                    
+                    , 0);
             SetUpGrid(panel);
             int numberOfIcons = i == numberOfPanels ? number_of_levels - current_level_count : amount_per_page;
             LoadIcons(numberOfIcons, panel);
@@ -65,7 +78,8 @@ public class LevelList : MonoBehaviour
     void SetUpGrid(GameObject panel) {
         GridLayoutGroup grid= panel.AddComponent<GridLayoutGroup>();
         grid.cellSize = new Vector2(item_dimensions.width, item_dimensions.height);
-        grid.childAlignment = TextAnchor.MiddleCenter;
+       // Debug.Log("Cell Size " + item_dimensions.width + item_dimensions.height);
+        grid.childAlignment = TextAnchor.UpperCenter;
         grid.spacing = icon_spacing;
     }
 
