@@ -105,7 +105,7 @@ public class Miner : MonoBehaviour {
                 ) {
                 UpdateState((int)MINER_STATE.THROW_DYNAMITE);
             //    hook.GetDynamite();
-
+          
             }
         }
 

@@ -10,10 +10,12 @@ public class MainMenu : MonoBehaviour
 {
     public Button btn_continue;
     public Button btn_new_game;
-    //public Button btn_setting;
-  //  public Button btn_instruction;
+    // public Button btn_setting;
+    // public Button btn_instruction;
     public Button btn_exit;
 
+    public AudioSource audioSource;
+    public AudioClip audioClick;
 
     private void Awake() {
         btn_continue.onClick.AddListener(PressContinueBtn);
@@ -28,6 +30,8 @@ public class MainMenu : MonoBehaviour
     }
 
     private void PressNewGameBtn() {
+        audioSource.PlayOneShot(audioClick);
+
         Debug.Log("Press NewGameBtn on MainMenu");
         LevelsManager.Instance.Reset();
         PlayerManager.Instance.Reset();

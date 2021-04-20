@@ -8,7 +8,10 @@ public class Hook : MonoBehaviour {
     public float rotate_speed = 70f;
     private float rotate_angle;
 
-
+    public AudioSource audioSource;
+    public AudioClip audioDragging;
+    public AudioClip audioExplode;
+    public AudioClip audioCheerUp;
 
     public float move_speed = 3f;
     public static float HOOK_SPEED = 3f;
@@ -31,7 +34,6 @@ public class Hook : MonoBehaviour {
 
         can_rotate = true;
         miner = GameObject.FindGameObjectWithTag("Miner").GetComponent<Miner>();
-
     }
     public bool isDraggingObject() {
         return !this.can_rotate && this.dragged_object != null && !this.move_down;
@@ -63,9 +65,13 @@ public class Hook : MonoBehaviour {
     }
 
     void GetInput() {
-
         if (Input.GetKeyDown(KeyCode.DownArrow)
-            && miner.GetState() == (int)Miner.MINER_STATE.IDLE) { 
+            && miner.GetState() == (int)Miner.MINER_STATE.IDLE) {
+            audioSource.clip= audioDragging;
+            audioSource.loop = true;
+            audioSource.Play();
+
+
             if (can_rotate) {
                 can_rotate = false;
                 move_down = true;
@@ -82,7 +88,7 @@ public class Hook : MonoBehaviour {
         Destroy(dragged_object);
         move_down = false;
         move_speed = 10f;
-
+        audioSource.PlayOneShot(audioExplode);
     }
     void MoveRope() {
         if (can_rotate) {
@@ -90,6 +96,7 @@ public class Hook : MonoBehaviour {
         };
         if (!can_rotate) {
             Vector3 temp = transform.position;
+
             if (move_down) {
                 temp -= transform.up * Time.deltaTime * move_speed;
             }
@@ -104,13 +111,14 @@ public class Hook : MonoBehaviour {
             if (temp.y >= initial_y) {
                 can_rotate = true;
                 move_speed = HOOK_SPEED;
-             
+                audioSource.Stop();
+
                 if (this.dragged_object!=null) {
-                 
                     ValueObject value= ObjectManagerment.Instance.GetValueObject(this.dragged_object.tag);
                     if (value != null)
                         InLevelManager.Instance.Earning(value);
 
+                    audioSource.PlayOneShot(audioCheerUp);
                     Debug.Log("Update Miner State From Hook : CHEER_UP");
                     miner.UpdateState((int)Miner.MINER_STATE.CHEER_UP);
                     Destroy(this.dragged_object);
