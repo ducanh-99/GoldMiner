@@ -33,7 +33,9 @@ public class Hook : MonoBehaviour {
         miner = GameObject.FindGameObjectWithTag("Miner").GetComponent<Miner>();
 
     }
-
+    public bool isDraggingObject() {
+        return !this.can_rotate && this.dragged_object != null && !this.move_down;
+    }
     // Update is called once per frame
     void Update() {
         Rotate();

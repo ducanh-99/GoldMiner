@@ -16,7 +16,7 @@ public class Level
         this.required_score = required_score;
         this.distance = distance;
         this.time = time;
-        this.star = index % 3;
+        this.star = 0;
     }
 
     override

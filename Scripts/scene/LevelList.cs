@@ -19,12 +19,9 @@ public class LevelList : MonoBehaviour
     public Vector2 icon_spacing;
     List<Level> levels;
 
-
-    public Button btn_back;
     // Start is called before the first frame update
     void Start()
     {
-        btn_back.onClick.AddListener(GoBack);
 
         current_level_count = 0;
         container_dimensions = levels_container.GetComponent<RectTransform>().rect;
@@ -48,10 +45,6 @@ public class LevelList : MonoBehaviour
        // Debug.Log("maxInARow" + maxInARow);
        // Debug.Log("maxInACol" + maxInACol);
         LoadPanels(totalPages); 
-    }
-
-    void GoBack() {
-        SceneHandler.Instance.GoBack();
     }
     void LoadPanels(int numberOfPanels) {
        // Debug.Log(numberOfPanels);

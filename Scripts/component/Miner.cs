@@ -47,6 +47,8 @@ public class Miner : MonoBehaviour {
         return miner_state == (int)MINER_STATE.MOVING 
             || miner_state == (int)MINER_STATE.IDLE;
     }
+
+
     public void UpdateState(int state) {
         anim.SetInteger("state", state);
         miner_state = state;
@@ -97,7 +99,10 @@ public class Miner : MonoBehaviour {
         again_throw_time -= Time.deltaTime;
 
         if (Input.GetKey(KeyCode.UpArrow)) {
-            if (miner_state==(int)MINER_STATE.DRAG && again_throw_time <= 0 ) {
+            if (miner_state==(int)MINER_STATE.DRAG 
+                && again_throw_time <= 0
+                && hook.isDraggingObject()
+                ) {
                 UpdateState((int)MINER_STATE.THROW_DYNAMITE);
             //    hook.GetDynamite();
 

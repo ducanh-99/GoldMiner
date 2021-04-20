@@ -42,12 +42,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f61a2396ad3df4781ddb6fb60ce980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hook: {fileID: 0}
   speed: 10
   maxSpeed: 3
   r2: {fileID: 0}
   miner_state: 0
-  is_cheering: 0
-  cheer_up_time: 1
+  is_start_count_down: 0
+  remain_time: 0
+  again_throw_time: 0
   anim: {fileID: 0}
 --- !u!1 &3281282252263840130
 GameObject:
@@ -173,8 +175,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3281282252511974589}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.722, y: 0.083, z: 0}
-  m_LocalScale: {x: 1.2752845, y: 1.3438382, z: 1}
+  m_LocalPosition: {x: -0.79, y: 0.08, z: 0}
+  m_LocalScale: {x: 1.0854423, y: 1.2266732, z: 1}
   m_Children:
   - {fileID: 234886589}
   m_Father: {fileID: 3281282252263840131}
@@ -466,8 +468,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6000619023786691423}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.004, y: -0.217, z: 0}
-  m_LocalScale: {x: 0.9980086, y: 1.1635317, z: 1}
+  m_LocalPosition: {x: -0.013, y: -0.217, z: 0}
+  m_LocalScale: {x: 0.7968687, y: 1.1635317, z: 1}
   m_Children: []
   m_Father: {fileID: 6197940368587254147}
   m_RootOrder: 0
@@ -555,9 +557,9 @@ MonoBehaviour:
   max_z: 55
   rotate_speed: 50
   move_speed: 3
-  initial_move_speed: 3
   min_y: -5
   miner: {fileID: 0}
+  explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
 --- !u!1001 &2326212663079791622
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -573,22 +575,22 @@ PrefabInstance:
     - target: {fileID: 4464755931503368272, guid: 54163d8558711334f8b964f41ea9cbf9,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.216535
+      value: 1.0091861
       objectReference: {fileID: 0}
     - target: {fileID: 4464755931503368272, guid: 54163d8558711334f8b964f41ea9cbf9,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.2333728
+      value: 1.0648606
       objectReference: {fileID: 0}
     - target: {fileID: 4464755931503368272, guid: 54163d8558711334f8b964f41ea9cbf9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5838
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4464755931503368272, guid: 54163d8558711334f8b964f41ea9cbf9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.859
+      value: 0.765
       objectReference: {fileID: 0}
     - target: {fileID: 4464755931503368272, guid: 54163d8558711334f8b964f41ea9cbf9,
         type: 3}

@@ -32,8 +32,8 @@ public class PlayerManager : MonoBehaviour {
 	public void Setup() {
 		if (PlayerPrefs.HasKey(SETUP_PLAYER_KEY)) return;
 
-		money = 1000;
-		dynamite = 4;
+		money = 0;
+		dynamite = 0;
 
 		PlayerPrefs.SetInt(SETUP_PLAYER_KEY, 1);
 	}

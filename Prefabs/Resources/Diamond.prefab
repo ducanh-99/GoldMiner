@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1494572311}
   - component: {fileID: 8993279342213499465}
   - component: {fileID: 4549350907280927704}
+  - component: {fileID: 4023105501969193508}
   m_Layer: 0
   m_Name: Diamond
   m_TagString: Diamond
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3117258385531275884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.62, y: 1.62, z: 1}
+  m_LocalScale: {x: 1.1290228, y: 1.2598644, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -131,3 +132,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   is_move_follow: 0
   target: {fileID: 0}
+--- !u!60 &4023105501969193508
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3117258385531275884}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.38, y: 0.3}
+    newSize: {x: 0.74, y: 0.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.0713822, y: 0.1313264}
+      - {x: -0.025187802, y: 0.14559415}
+      - {x: -0.09758876, y: 0.14274618}
+      - {x: -0.17096949, y: 0.11011855}
+      - {x: -0.17171575, y: 0.05347568}
+      - {x: -0.16009465, y: 0.036315117}
+      - {x: -0.060937732, y: -0.117369734}
+      - {x: -0.041648492, y: -0.14425427}
+      - {x: -0.013561804, y: -0.13085802}
+      - {x: 0.004894873, y: -0.11320289}
+      - {x: 0.103830226, y: -0.051601443}
+      - {x: 0.18533406, y: 0.006666623}
+      - {x: 0.108511165, y: 0.102762885}

@@ -10,38 +10,34 @@ public class LevelStore : MonoBehaviour {
     public Button btn_start;
     
     public GameObject item_detail;
-    public GameObject canvas;
 
-    public Text item_des_text;
     public Text wallet_text;
     public int choose_index;
 
     public int item_count;
     public List<Powerup> items;
-    public List<GameObject> items_go;
 
-    public Rect container_dimensions;
-    public Rect item_dimensions;
-
-    public Vector2 spacing;
     public float remain_choose_time=0;
     public float remain_buy_time = 0;
     public static float DELAY_TIME = 0.3f;
 
     public Text[] item_text = new Text[4];
+
+    public Text cur_item_des_text;
+    public Image cur_item_image;
+    public Text cur_item_price_text;
+    public Text cur_item_buy_text;
     void Start() {
 
         btn_start.onClick.AddListener(PressBtnStart);
-
         item_count = PowerupManager.Instance.GetSaleCount();
         items = PowerupManager.Instance.ChoosePowerUpToSell();
 
         choose_index = 0;
 
-        LoadStore();
+        LoadItemList();
     }
 
-    
 
     private void PressBtnStart() {
         SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_PLAY_SCENE);
@@ -49,7 +45,7 @@ public class LevelStore : MonoBehaviour {
 
     
 
-    void LoadStore() {
+    void LoadItemList() {
         for (int i = 0; i < items.Count; i++) {
             item_text[i].text = items[i].name;
         }
@@ -58,7 +54,7 @@ public class LevelStore : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
-        wallet_text.text = "You have " + PlayerManager.Instance.GetMoney();
+        wallet_text.text = "" + PlayerManager.Instance.GetMoney();
         ChooseItem();
         BuyItem();
     }
@@ -69,27 +65,28 @@ public class LevelStore : MonoBehaviour {
         remain_choose_time -= Time.deltaTime;
 
         if (remain_choose_time > 0) return;
-        if (Input.GetKey(KeyCode.LeftArrow)) {
+        if (Input.GetKey(KeyCode.UpArrow)) {
             choose_index = (choose_index + item_count - 1) % item_count;
             remain_choose_time = DELAY_TIME;
         }
-        else if (Input.GetKey(KeyCode.RightArrow)) {
+        else if (Input.GetKey(KeyCode.DownArrow)) {
             choose_index = (choose_index + 1) % item_count;
             remain_choose_time = DELAY_TIME;
         }
 
-
-        Powerup choosed_item = items[choose_index];
-        for (int i = 0; i < items_go.Count; i++) {
-          
-            items_go[i].GetComponent<StoreItem>().price_text.text =
-                    items[i].is_bought ? "Bought" : items[i].price + "";
-            items_go[i].GetComponent<StoreItem>().price_text.color = 
-                    i == choose_index ? Color.yellow : Color.white;
+        for (int i = 0; i < items.Count; i++) {
+            item_text[i].fontStyle = i == choose_index? FontStyle.BoldAndItalic:FontStyle.Normal;
         }
 
-        item_des_text.text = choosed_item.name + " :" + choosed_item.description;
-        item_des_text.color = Color.yellow;
+        Powerup choosed_item = items[choose_index];
+        cur_item_des_text.text = "" + choosed_item.description;
+        cur_item_price_text.text = "" + choosed_item.price;
+        cur_item_buy_text.text = choosed_item.is_bought ?
+                "Đã mua!"
+                :
+                "Nhấn ENTER để mua!";
+        cur_item_image.sprite = 
+            Resources.Load( choosed_item.sprite, typeof(Sprite)) as Sprite;
     }
 
     void BuyItem() {

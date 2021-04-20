@@ -38,7 +38,7 @@ public class DynamicObjectScripts : ObjectScripts
     void Move()
     {
         Vector3 temp = transform.position;
-        Debug.Log("Transform Position X" + transform.position.x);
+        //Debug.Log("Transform Position X" + transform.position.x);
         if (move_right)
         {
             if (temp.x < max_dictance)
@@ -48,7 +48,7 @@ public class DynamicObjectScripts : ObjectScripts
             else
             {
                 move_right = false;
-                Debug.Log("Move Right False");
+                //Debug.Log("Move Right False");
                 //  transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
             }
         }

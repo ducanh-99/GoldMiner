@@ -7,8 +7,9 @@ public class InLevelManager : MonoBehaviour
 {
 	public Level level;
 
-	
-	public  int time, distance, score,dynamite;
+
+	public int time, distance, score, dynamite;
+	public bool pause;
 	public bool is_passed;
 
 	private static InLevelManager instance;
@@ -36,6 +37,19 @@ public class InLevelManager : MonoBehaviour
 		instance.score = 0;
 	}
 
+	public void Pause() {
+		if (!pause) {
+			Time.timeScale = 0;
+			pause = true;
+		}
+    }
+
+	public void UnPause() {
+		if (pause) {
+			Time.timeScale = 1;
+			pause = false;
+		}
+    }
 	public void GetDataFromPlayerManager() {
 		dynamite = PlayerManager.Instance.GetDynamite();
     }
@@ -71,10 +85,11 @@ public class InLevelManager : MonoBehaviour
 	public void CheckPass() {
 		if (level.required_score <= score) {
 			is_passed = true;
+			level.star = Random.Range(1, 3);
 			PlayerManager.Instance.AddMoney(score);
 		}
 		else {
-			is_passed = false;
+			FailLevel();
 
 		}
 	}
@@ -90,8 +105,13 @@ public class InLevelManager : MonoBehaviour
 	public int GetScore() {
 		return score;
     }
-	public void TimeOut() {
+
+	public void FailLevel() {
+		level.star = 0;
 		is_passed = false;
+    }
+	public void TimeOut() {
+		FailLevel();
 		SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_RESULT_SCENE);
 	}
 

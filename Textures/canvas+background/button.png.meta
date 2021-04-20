@@ -22,7 +22,7 @@ TextureImporter:
     second: R27f12027476b46c62385e0d00766a864 (1)_5
   - first:
       213: 2958017614701103974
-    second: R27f12027476b46c62385e0d00766a864 (1)_6
+    second: button_replay
   - first:
       213: -4738881165022013235
     second: R27f12027476b46c62385e0d00766a864 (1)_7
@@ -37,7 +37,7 @@ TextureImporter:
     second: R27f12027476b46c62385e0d00766a864 (1)_10
   - first:
       213: -673870980006794124
-    second: R27f12027476b46c62385e0d00766a864 (1)_11
+    second: button_next
   - first:
       213: -1295937359654183583
     second: R27f12027476b46c62385e0d00766a864 (1)_12
@@ -61,10 +61,10 @@ TextureImporter:
     second: R27f12027476b46c62385e0d00766a864 (1)_18
   - first:
       213: -3652850357269229443
-    second: R27f12027476b46c62385e0d00766a864 (1)_19
+    second: button_info
   - first:
       213: 1324463389724849269
-    second: R27f12027476b46c62385e0d00766a864 (1)_20
+    second: button_home
   - first:
       213: 6458208981362420954
     second: R27f12027476b46c62385e0d00766a864 (1)_21
@@ -303,7 +303,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: R27f12027476b46c62385e0d00766a864 (1)_6
+      name: button_replay
       rect:
         serializedVersion: 2
         x: 120
@@ -408,7 +408,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: R27f12027476b46c62385e0d00766a864 (1)_11
+      name: button_next
       rect:
         serializedVersion: 2
         x: 120
@@ -555,7 +555,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: R27f12027476b46c62385e0d00766a864 (1)_19
+      name: button_info
       rect:
         serializedVersion: 2
         x: 302
@@ -576,7 +576,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: R27f12027476b46c62385e0d00766a864 (1)_20
+      name: button_home
       rect:
         serializedVersion: 2
         x: 394
