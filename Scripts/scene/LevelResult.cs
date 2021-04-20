@@ -64,6 +64,9 @@ public class LevelResult : MonoBehaviour {
     }
 
     private void PressBtnMainMenu() {
+        if (InLevelManager.Instance.is_passed) {
+            LevelsManager.Instance.NextLevel();
+        }
         InLevelManager.Instance.ReturnDataForPlayerManager();
         SceneHandler.Instance.OpenScene(SceneHandler.MAIN_MENU_SCENE);
     }
