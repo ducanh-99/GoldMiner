@@ -65,7 +65,7 @@ public class Hook : MonoBehaviour {
     }
 
     void GetInput() {
-        if (Input.GetKeyDown(KeyCode.DownArrow)
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetMouseButtonDown(0)
             && miner.GetState() == (int)Miner.MINER_STATE.IDLE) {
             audioSource.clip= audioDragging;
             audioSource.loop = true;

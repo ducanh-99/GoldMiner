@@ -55,6 +55,8 @@ public class ObjectManagerment : MonoBehaviour
         {"TreasureChest",  new ValueObject{score=500, weight=HOOK_SPEED*0.8f}},
 
         {"OreSeam", new ValueObject{score=10, weight=HOOK_SPEED*0.1f}},
+
+        {"AladdinLamp",  new ValueObject{score =0, weight=HOOK_SPEED*0.2f}},
     };
 
 
