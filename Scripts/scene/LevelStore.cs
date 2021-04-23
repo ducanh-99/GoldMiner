@@ -17,6 +17,10 @@ public class LevelStore : MonoBehaviour {
     public int item_count;
     public List<Powerup> items;
 
+    public AudioSource audioSource;
+    public AudioClip audioBuy;
+    public AudioClip audioChangeItem;
+
     public float remain_choose_time=0;
     public float remain_buy_time = 0;
     public static float DELAY_TIME = 0.3f;
@@ -66,10 +70,12 @@ public class LevelStore : MonoBehaviour {
 
         if (remain_choose_time > 0) return;
         if (Input.GetKey(KeyCode.UpArrow)) {
+            audioSource.PlayOneShot(audioChangeItem);
             choose_index = (choose_index + item_count - 1) % item_count;
             remain_choose_time = DELAY_TIME;
         }
         else if (Input.GetKey(KeyCode.DownArrow)) {
+            audioSource.PlayOneShot(audioChangeItem);
             choose_index = (choose_index + 1) % item_count;
             remain_choose_time = DELAY_TIME;
         }
@@ -95,6 +101,8 @@ public class LevelStore : MonoBehaviour {
         if (remain_buy_time > 0) return;
 
         if ((Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey("enter"))) {
+            audioSource.PlayOneShot(audioBuy);
+
             Debug.Log("Press Enter");
             Powerup choosed_powerup = items[choose_index];
             remain_buy_time = DELAY_TIME;
