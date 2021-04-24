@@ -224,6 +224,9 @@ MonoBehaviour:
   wallet_text: {fileID: 410358045}
   choose_index: 0
   item_count: 0
+  audioSource: {fileID: 2341853}
+  audioBuy: {fileID: 8300000, guid: 460f7d6d96b0c7546a81f1d6f4b4accb, type: 3}
+  audioChangeItem: {fileID: 8300000, guid: d5c3b104c410701488a97346bdc638eb, type: 3}
   remain_choose_time: 0
   remain_buy_time: 0
   item_text:
