@@ -141,3 +141,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   is_move_follow: 0
   target: {fileID: 0}
+  explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}

@@ -90,6 +90,13 @@ public class Hook : MonoBehaviour {
         move_speed = 10f;
         audioSource.PlayOneShot(audioExplode);
     }
+
+    public void GetExplodeBarrel() {
+        Destroy(dragged_object);
+        move_down = false;
+        move_speed = 10f;
+        audioSource.PlayOneShot(audioExplode);
+    }
     void MoveRope() {
         if (can_rotate) {
             return;
