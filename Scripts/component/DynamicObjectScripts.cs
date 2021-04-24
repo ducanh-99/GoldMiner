@@ -51,7 +51,7 @@ public class DynamicObjectScripts : ObjectScripts
                 transform.Rotate (Vector3.up * -180);
                 transform.Rotate (Vector3.forward * 270);
                 //Debug.Log("Move Right False");
-                //  transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+                 // transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
             }
         }
         else
@@ -63,7 +63,7 @@ public class DynamicObjectScripts : ObjectScripts
             else
             {
                 move_right = true;
-               // transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
+               // transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
             }
         }
     }
