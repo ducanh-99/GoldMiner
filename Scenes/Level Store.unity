@@ -224,6 +224,9 @@ MonoBehaviour:
   wallet_text: {fileID: 410358045}
   choose_index: 0
   item_count: 0
+  audioSource: {fileID: 2341853}
+  audioBuy: {fileID: 8300000, guid: 460f7d6d96b0c7546a81f1d6f4b4accb, type: 3}
+  audioChangeItem: {fileID: 8300000, guid: d5c3b104c410701488a97346bdc638eb, type: 3}
   remain_choose_time: 0
   remain_buy_time: 0
   item_text:
@@ -1162,8 +1165,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.0024948}
-  m_SizeDelta: {x: 929, y: 522.505}
+  m_AnchoredPosition: {x: 0, y: -0.0000076293945}
+  m_SizeDelta: {x: 925, y: 725}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1313707820
 MonoBehaviour:
@@ -1236,7 +1239,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.7614, y: 215}
+  m_AnchoredPosition: {x: 5.7614, y: 292}
   m_SizeDelta: {x: 258.35846, y: 44.9991}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1325336701
@@ -1583,7 +1586,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7, y: -200}
+  m_AnchoredPosition: {x: 7, y: -249}
   m_SizeDelta: {x: 232.82645, y: 71.84257}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1875937741
@@ -1762,12 +1765,12 @@ PrefabInstance:
     - target: {fileID: 2444039429901947511, guid: 87bc0bdbaaa67e74ea309d29b43aa437,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -28
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 2444039429901947511, guid: 87bc0bdbaaa67e74ea309d29b43aa437,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -23
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2444039429901947511, guid: 87bc0bdbaaa67e74ea309d29b43aa437,
         type: 3}
@@ -1962,6 +1965,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151680323444235747, guid: 7f48e89e4cd9bce438bff97be88bc55e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -412
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151680323444235747, guid: 7f48e89e4cd9bce438bff97be88bc55e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -309
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151680323671922002, guid: 7f48e89e4cd9bce438bff97be88bc55e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 412
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151680323671922002, guid: 7f48e89e4cd9bce438bff97be88bc55e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -309
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f48e89e4cd9bce438bff97be88bc55e, type: 3}

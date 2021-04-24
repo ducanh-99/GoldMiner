@@ -10,13 +10,13 @@ public class DynamicObjectScripts : ObjectScripts
     public float min_distance;
     public float move_speed;
 
-    private bool move_right;
+    public bool move_right;
     void Start()
     {
         max_dictance = transform.position.x + MAX_DISTANCE;
         min_distance = transform.position.x - MAX_DISTANCE;
         move_right = true;
-        move_speed = 1;
+        move_speed = 0.5f;
     }
 
     // Update is called once per frame
@@ -48,8 +48,10 @@ public class DynamicObjectScripts : ObjectScripts
             else
             {
                 move_right = false;
+                transform.Rotate (Vector3.up * -180);
+                transform.Rotate (Vector3.forward * 270);
                 //Debug.Log("Move Right False");
-                //  transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+                 // transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
             }
         }
         else
@@ -61,7 +63,7 @@ public class DynamicObjectScripts : ObjectScripts
             else
             {
                 move_right = true;
-               // transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
+               // transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
             }
         }
     }

@@ -39,21 +39,16 @@ public class LevelsManager : MonoBehaviour
 		if (PlayerPrefs.HasKey(SETUP_LEVEL_KEY)) return;
 
 		list = new List<Level>();
-		list.Add(new Level(1, 100,2000,1000));
-		list.Add(new Level(2, 222, 2222, 2222));
-		list.Add(new Level(3, 333, 3333, 3333));
-		list.Add(new Level(4, 100, 2000, 1000));
-		list.Add(new Level(5, 100, 2000, 1000));
-		list.Add(new Level(6, 100, 2000, 1000));
-		list.Add(new Level(7, 100, 2000, 1000));
-		list.Add(new Level(8, 100, 2000, 1000));
-		list.Add(new Level(9, 100, 2000, 1000));
-		list.Add(new Level(10, 100, 2000, 1000));
-		list.Add(new Level(11, 100, 2000, 1000));
-		list.Add(new Level(12, 100, 2000, 1000));
-		list.Add(new Level(13, 100, 2000, 1000));
-		list.Add(new Level(14, 100, 2000, 1000));
-		list.Add(new Level(15, 100, 2000, 1000));
+		list.Add(new Level(1, 2000, 2000, 180));
+		list.Add(new Level(2, 2250, 2000, 1000));
+		list.Add(new Level(3, 2500, 2000, 100));
+		list.Add(new Level(4, 3000, 2000, 1000));
+		list.Add(new Level(5, 3250, 2000, 1000));
+		list.Add(new Level(6, 3500, 2000, 1000));
+		list.Add(new Level(7, 4000, 2000, 1000));
+		list.Add(new Level(8, 4250, 2000, 1000));
+		list.Add(new Level(9, 4500, 2000, 1000));
+		list.Add(new Level(10,5000, 2000, 1000));
 		furthest_level_index = 1 ;
 		choosed_level_index = 1;
 

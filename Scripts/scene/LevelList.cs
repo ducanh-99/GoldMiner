@@ -9,7 +9,7 @@ public class LevelList : MonoBehaviour
 {
     public GameObject levels_container;
     public GameObject level_item_pattern;
-    public int number_of_levels = 50;
+    public int number_of_levels;
     public int amount_per_page;
     public GameObject this_canvas;
     public Rect container_dimensions;
@@ -72,7 +72,7 @@ public class LevelList : MonoBehaviour
         GridLayoutGroup grid= panel.AddComponent<GridLayoutGroup>();
         grid.cellSize = new Vector2(item_dimensions.width, item_dimensions.height);
        // Debug.Log("Cell Size " + item_dimensions.width + item_dimensions.height);
-        grid.childAlignment = TextAnchor.UpperCenter;
+        grid.childAlignment = TextAnchor.MiddleCenter;
         grid.spacing = icon_spacing;
     }
 

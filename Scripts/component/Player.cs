@@ -7,7 +7,6 @@ public class Player : MonoBehaviour {
     public float speed, maxSpeed ;
     public Rigidbody2D r2;
     public Miner miner;
-
     // Start is called before the first frame update
     void Start() {
         r2 = gameObject.GetComponent<Rigidbody2D>();
