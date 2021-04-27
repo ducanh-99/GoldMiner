@@ -73,6 +73,8 @@ public class InLevelManager : MonoBehaviour
         }
 		else if (value.tag.Contains("Stone")) {
 			value_score *= PowerupManager.Instance.STONE_COLLECTION_FACTOR;
+		} else if(value.tag.Contains("AladdinLamp")){
+			genieLampAppear();
 		}
 		else if (value.tag.Contains("Gem")) {
 			Debug.Log("Collect A Gem " + value.tag);
@@ -82,6 +84,15 @@ public class InLevelManager : MonoBehaviour
         }
 		score += value_score;
     }
+
+	void genieLampAppear(){
+		Pause();
+		SceneHandler.Instance.OpenScene(SceneHandler.ALADDIN_LAMP_SCENE);
+		PowerupManager powerupManager = PowerupManager.Instance;
+		// LevelStore.Instance;
+		UnPause();
+
+	}
 		
 
 

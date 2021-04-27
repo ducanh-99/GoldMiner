@@ -8,6 +8,7 @@ public class SceneHandler : MonoBehaviour
     public static string LEVEL_LIST_SCENE = "Level List";
     public static string LEVEL_ENTRY_SCENE = "Level Entry";
     public static string LEVEL_STORE_SCENE = "Level Store";
+    public static string ALADDIN_LAMP_SCENE = "Aladdin Lamp";
     public static string LEVEL_PLAY_SCENE = "Level Play";
     public static string LEVEL_RESULT_SCENE = "Level Result";
     public static string SETTING_SCENE = "Setting";
