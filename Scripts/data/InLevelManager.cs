@@ -13,7 +13,7 @@ public class InLevelManager : MonoBehaviour
 	public bool is_passed;
 
 	private static InLevelManager instance;
-
+	public GemsCollector gems_collector;
 	public static InLevelManager Instance{
 		get
 		{
@@ -44,6 +44,11 @@ public class InLevelManager : MonoBehaviour
 		}
     }
 
+	public void SetGemsCollector(GemsCollector gems) {
+		if (gems != null) Debug.Log("Gems Collector Script Not nUll");	
+		this.gems_collector = gems;
+    }
+
 	public void UnPause() {
 		if (pause) {
 			Time.timeScale = 1;
@@ -69,6 +74,12 @@ public class InLevelManager : MonoBehaviour
 		else if (value.tag.Contains("Stone")) {
 			value_score *= PowerupManager.Instance.STONE_COLLECTION_FACTOR;
 		}
+		else if (value.tag.Contains("Gem")) {
+			Debug.Log("Collect A Gem " + value.tag);
+			if (this.gems_collector != null) {
+				this.gems_collector.CollectGem(value.tag);
+            }
+        }
 		score += value_score;
     }
 		
