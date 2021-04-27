@@ -238,8 +238,8 @@ MonoBehaviour:
   smoothTimeY: 0
   velocity: {x: 0, y: 0}
   player: {fileID: 0}
-  minPos: {x: 0, y: 0}
-  maxPos: {x: 25, y: 0}
+  minPos: {x: -10, y: 0}
+  maxPos: {x: 50, y: 0}
   enableBound: 1
 --- !u!114 &2341853
 MonoBehaviour:
@@ -806,8 +806,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659716051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.014, y: 0, z: 10}
-  m_LocalScale: {x: 17.751755, y: 9.891958, z: 1}
+  m_LocalPosition: {x: -0.257, y: 0.714, z: 10}
+  m_LocalScale: {x: 18.293922, y: 11.319061, z: 1}
   m_Children: []
   m_Father: {fileID: 2341850}
   m_RootOrder: 0

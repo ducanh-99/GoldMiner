@@ -38,8 +38,9 @@ public class GemsCollector : MonoBehaviour {
 		if (collect_status == -1) return;
 
 		collect_status |= 1 << type;
-
-		if (collect_status == 1 << GEMS_TYPE - 1) {
+		Debug.Log("Collect Status :"+ collect_status);
+		Debug.Log("Complete Status :" + ((1 << GEMS_TYPE) - 1));
+		if (collect_status == (1 << GEMS_TYPE) - 1) {
 			InLevelManager.Instance.Earning(new ValueObject { tag = "bonus_gems_collector", score = 3000 });
 			collect_status = -1;
         }
@@ -51,9 +52,13 @@ public class GemsCollector : MonoBehaviour {
         if (dict.ContainsKey(tag)) {
 			GemType gem_type = dict[tag];
 			Debug.Log("Map GemType To    " + gem_type.id + gem_type.sprite);
-            gems_go[gem_type.id].sprite=
-				 Resources.Load(gem_type.sprite, typeof(Sprite)) as Sprite;
-			
+
+			//Fix cứng hình ảnh đá quý trong giao diện prefab gems_collector để dễ căn chỉnh tỷ lệ: 
+			// Thu thập loại nào => set opacity = 1 cho hình ảnh tương ứng.
+			//  gems_go[gem_type.id].sprite=
+			//	 Resources.Load(gem_type.sprite, typeof(Sprite)) as Sprite;
+			Image gems = gems_go[gem_type.id];
+			gems.color= new Color(255, 255,255,1);
 			CheckCompleteCollect(gem_type.id);
 		};
     }

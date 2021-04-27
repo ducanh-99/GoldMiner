@@ -31,7 +31,7 @@ public class Hook : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         initial_y = transform.position.y;
-
+ 
         can_rotate = true;
         miner = GameObject.FindGameObjectWithTag("Miner").GetComponent<Miner>();
     }
@@ -76,7 +76,6 @@ public class Hook : MonoBehaviour {
                 can_rotate = false;
                 move_down = true;
 
-                Debug.Log("Update Miner State From Hook : DRAG");
                 miner.UpdateState((int)Miner.MINER_STATE.DRAG);
             }
         }
@@ -103,7 +102,6 @@ public class Hook : MonoBehaviour {
         };
         if (!can_rotate) {
             Vector3 temp = transform.position;
-
             if (move_down) {
                 temp -= transform.up * Time.deltaTime * move_speed;
             }
@@ -111,11 +109,11 @@ public class Hook : MonoBehaviour {
                 temp += transform.up * Time.deltaTime * move_speed;
             }
             transform.position = temp;
-            if (temp.y <= min_y) {
+            if (temp.y <= min_y && move_down==true) {
                 move_down = false;
             }
 
-            if (temp.y >= initial_y) {
+            if (temp.y >= initial_y && move_down==false) {
                 can_rotate = true;
                 move_speed = HOOK_SPEED;
                 audioSource.Stop();
