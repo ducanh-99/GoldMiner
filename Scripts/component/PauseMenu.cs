@@ -34,6 +34,7 @@ public class PauseMenu : MonoBehaviour {
             InLevelManager.Instance.Pause();
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow) && pause) {
+            Debug.Log("Get Key Up Arrow on Pause ");
             choose_index = (choose_index + OPTIONS_COUNT  -1) % OPTIONS_COUNT;
         }
 

@@ -23,6 +23,8 @@ public class LevelPlay : MonoBehaviour {
             Debug.Log("Detect Gems Collector");
             InLevelManager.Instance.SetGemsCollector(gems.GetComponent<GemsCollector>());
         }
+     
+
         InLevelManager.Instance.EnterLevel();
     }
 }

@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6955597271102342319}
   - component: {fileID: 2200153681559948746}
-  - component: {fileID: 8653389443740934736}
-  - component: {fileID: 4857158874072113689}
+  - component: {fileID: 9088308155469726633}
+  - component: {fileID: 4291351065029252463}
   m_Layer: 0
-  m_Name: MouseExplode
-  m_TagString: MouseExplode
+  m_Name: ExplodeMouse
+  m_TagString: MouseDiamond
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3117258385531275884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1053036, y: 1.0755543, z: 1}
+  m_LocalScale: {x: 1.2221915, y: 1.1560192, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -83,21 +83,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8653389443740934736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3117258385531275884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b058105c10a6a495f9259e6ae7a1eaa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  is_move_follow: 0
-  target: {fileID: 0}
---- !u!60 &4857158874072113689
+--- !u!60 &9088308155469726633
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,7 +93,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -122,34 +108,32 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.33460015, y: 0.26740873}
-      - {x: 0.22209445, y: 0.23393025}
-      - {x: 0.021629319, y: 0.26286942}
-      - {x: -0.05822973, y: 0.32237297}
-      - {x: -0.1293176, y: 0.2876502}
-      - {x: -0.14528246, y: 0.19186693}
-      - {x: -0.29732937, y: 0.17427558}
-      - {x: -0.35844904, y: 0.110936955}
-      - {x: -0.38130596, y: 0.0498174}
-      - {x: -0.40068424, y: -0.12839288}
-      - {x: -0.38664714, y: -0.225}
-      - {x: -0.32397652, y: -0.27897525}
-      - {x: -0.247726, y: -0.31255534}
-      - {x: -0.04719806, y: -0.29227155}
-      - {x: -0.0044254195, y: -0.2506435}
-      - {x: 0.027338434, y: -0.28240353}
-      - {x: 0.07472773, y: -0.26969427}
-      - {x: 0.17482129, y: -0.24322562}
-      - {x: 0.30198842, y: -0.2587338}
-      - {x: 0.30434817, y: -0.23887515}
-      - {x: 0.30085912, y: -0.18204315}
-      - {x: 0.3893177, y: -0.18030043}
-      - {x: 0.40226662, y: -0.13075988}
-      - {x: 0.3770213, y: -0.093389496}
-      - {x: 0.30631077, y: -0.095712006}
-      - {x: 0.37098104, y: -0.035435624}
-      - {x: 0.3873434, y: 0.06232841}
-      - {x: 0.34218842, y: 0.1292858}
-      - {x: 0.3944633, y: 0.16670924}
-      - {x: 0.39270082, y: 0.18133323}
-      - {x: 0.3919884, y: 0.22319199}
+    - - {x: 0.38, y: 0.305}
+      - {x: -0.14, y: 0.305}
+      - {x: -0.17999999, y: 0.21499999}
+      - {x: -0.29999998, y: 0.235}
+      - {x: -0.39999998, y: 0.125}
+      - {x: -0.39999998, y: -0.225}
+      - {x: -0.34, y: -0.305}
+      - {x: 0.31, y: -0.305}
+      - {x: 0.39999998, y: -0.21499999}
+      - {x: 0.39999998, y: 0.255}
+--- !u!114 &4291351065029252463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3117258385531275884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 069c28e0d85acd14099c23bbbbe45ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  is_move_follow: 0
+  target: {fileID: 0}
+  max_dictance: 0
+  min_distance: 0
+  move_speed: 0
+  move_right: 0
+  explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}

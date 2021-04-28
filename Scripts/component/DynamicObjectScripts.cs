@@ -16,9 +16,15 @@ public class DynamicObjectScripts : ObjectScripts
         max_dictance = transform.position.x + MAX_DISTANCE;
         min_distance = transform.position.x - MAX_DISTANCE;
         move_right = true;
-        move_speed = 0.5f;
-    }
+        move_speed = 0.7f;
 
+    }
+    void Flip() {
+        Vector3 scale;
+        scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -43,28 +49,34 @@ public class DynamicObjectScripts : ObjectScripts
         {
             if (temp.x < max_dictance)
             {
+               // Debug.Log("Moving To Right " + temp.x + "   " + max_dictance);
                 transform.position += transform.right * move_speed * Time.deltaTime;
             }
             else
             {
+                Debug.Log("Flip To Left");
                 move_right = false;
-                transform.Rotate (Vector3.up * -180);
-                transform.Rotate (Vector3.forward * 180);
+                //  transform.Rotate (Vector3.up * -180);
+                // transform.Rotate (Vector3.forward * 180);
                 //Debug.Log("Move Right False");
-                 // transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+                Flip();
             }
         }
         else
         {
             if (temp.x > min_distance)
             {
-                transform.position += transform.right * -move_speed * Time.deltaTime;
+               // Debug.Log("Moving To Left " + temp.x + "   " + min_distance);
+                transform.position -= transform.right * move_speed * Time.deltaTime;
             }
             else
             {
+                Debug.Log("Flip To Right");
                 move_right = true;
-               // transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
+                Flip();
+                // transform.rotation = Quaternion.AngleAxis(180, Vector3.up);
             }
         }
     }
+
 }

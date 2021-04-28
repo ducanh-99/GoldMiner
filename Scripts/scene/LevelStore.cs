@@ -84,6 +84,7 @@ public class LevelStore : MonoBehaviour {
             item_text[i].fontStyle = i == choose_index? FontStyle.BoldAndItalic:FontStyle.Normal;
         }
 
+
         Powerup choosed_item = items[choose_index];
         cur_item_des_text.text = "" + choosed_item.description;
         cur_item_price_text.text = "" + choosed_item.price;
@@ -107,7 +108,7 @@ public class LevelStore : MonoBehaviour {
             Powerup choosed_powerup = items[choose_index];
             remain_buy_time = DELAY_TIME;
             if (!choosed_powerup.is_bought ) {
-                PowerupManager.Instance.BuyItem(choosed_powerup);
+                PowerupManager.Instance.BuyItem(choosed_powerup,false);
             }
         }
     }

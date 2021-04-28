@@ -4,15 +4,13 @@ using UnityEngine;
 using static ObjectManagerment;
 using static ValueObject;
 
-public class ExplodeBarrelScript : ObjectScripts
+public class ExplodeMouseScript : DynamicObjectScripts
 {
     public GameObject explosion;
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
+    void OnTriggerEnter2D(Collider2D col) {
         // base.OnTriggerEnter2D(col);
-        if (col.CompareTag("Hook"))
-        {
+        if (col.CompareTag("Hook")) {
             col.gameObject.GetComponent<Hook>().GetExplodeObject();
         }
 

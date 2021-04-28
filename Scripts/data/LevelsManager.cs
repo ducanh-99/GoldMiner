@@ -81,7 +81,8 @@ public class LevelsManager : MonoBehaviour
     }
 
 	public void NextLevel() {
-		furthest_level_index++;
+		if (furthest_level_index<list.Count-1)
+			furthest_level_index++;
 		choosed_level_index = furthest_level_index;
     }
 

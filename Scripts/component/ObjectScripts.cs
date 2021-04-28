@@ -36,7 +36,7 @@ public class ObjectScripts : MonoBehaviour
     {
         if (col.gameObject.name == "Hook")
         {
-           Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+            Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
             is_move_follow = true;
             SetTarget(col.gameObject.transform);
 

@@ -81,11 +81,11 @@ public class PowerupManager : MonoBehaviour
         }
     }
 
-    public bool BuyItem(Powerup item) {
+    public bool BuyItem(Powerup item,bool free) {
         if (item.price > PlayerManager.Instance.GetMoney()) return false;
         item.is_bought = true;
         PlayerManager.Instance.AddMoney(-item.price);
-
+        Debug.Log("Buy Item "+ item.name);
         switch (item.tag) {
             case "StoneCollection":
                 STONE_COLLECTION_FACTOR = 2;

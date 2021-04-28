@@ -65,7 +65,7 @@ public class Miner : MonoBehaviour {
     void CountDownThrowDynamite() {
         if (miner_state != (int)MINER_STATE.THROW_DYNAMITE) return;
         Debug.Log("is_start_count_down:" + is_start_count_down);
-        Debug.Log("Remain Time :" + remain_time);
+       // Debug.Log("Remain Time :" + remain_time);
         if (!is_start_count_down) {
             is_start_count_down = true;
             remain_time = THROW_DYNAMITE_DURATION;
@@ -102,10 +102,11 @@ public class Miner : MonoBehaviour {
             if (miner_state==(int)MINER_STATE.DRAG 
                 && again_throw_time <= 0
                 && hook.isDraggingObject()
+                && InLevelManager.Instance.dynamite>0
                 ) {
                 UpdateState((int)MINER_STATE.THROW_DYNAMITE);
-            //    hook.GetDynamite();
-          
+                //    hook.GetDynamite();
+                InLevelManager.Instance.AddDynamite(-1);
             }
         }
 

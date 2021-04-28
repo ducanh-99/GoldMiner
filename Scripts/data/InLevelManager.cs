@@ -14,6 +14,8 @@ public class InLevelManager : MonoBehaviour
 
 	private static InLevelManager instance;
 	public GemsCollector gems_collector;
+
+	public bool open_lamp_yet;
 	public static InLevelManager Instance{
 		get
 		{
@@ -35,6 +37,7 @@ public class InLevelManager : MonoBehaviour
 		instance.time = instance.level.time;
 		instance.distance = instance.level.distance;
 		instance.score = 0;
+		instance.open_lamp_yet = false;
 	}
 
 	public void Pause() {
@@ -48,6 +51,8 @@ public class InLevelManager : MonoBehaviour
 		if (gems != null) Debug.Log("Gems Collector Script Not nUll");	
 		this.gems_collector = gems;
     }
+
+
 
 	public void UnPause() {
 		if (pause) {
@@ -73,8 +78,11 @@ public class InLevelManager : MonoBehaviour
         }
 		else if (value.tag.Contains("Stone")) {
 			value_score *= PowerupManager.Instance.STONE_COLLECTION_FACTOR;
-		} else if(value.tag.Contains("AladdinLamp")){
-			genieLampAppear();
+		} 
+		else if(value.tag.Contains("AladdinLamp")){
+			open_lamp_yet = true;
+			Debug.Log("Get Aladdin Lamp ");
+			
 		}
 		else if (value.tag.Contains("Gem")) {
 			Debug.Log("Collect A Gem " + value.tag);
@@ -84,15 +92,6 @@ public class InLevelManager : MonoBehaviour
         }
 		score += value_score;
     }
-
-	void genieLampAppear(){
-		Pause();
-		SceneHandler.Instance.OpenScene(SceneHandler.ALADDIN_LAMP_SCENE);
-		PowerupManager powerupManager = PowerupManager.Instance;
-		// LevelStore.Instance;
-		UnPause();
-
-	}
 		
 
 

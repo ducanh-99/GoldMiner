@@ -65,8 +65,10 @@ public class Hook : MonoBehaviour {
     }
 
     void GetInput() {
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetMouseButtonDown(0)
-            && miner.GetState() == (int)Miner.MINER_STATE.IDLE) {
+        if (
+            (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetMouseButtonDown(0))
+            && !(InLevelManager.Instance.pause)
+            && (miner.GetState() == (int)Miner.MINER_STATE.IDLE)) {
             audioSource.clip= audioDragging;
             audioSource.loop = true;
             audioSource.Play();
@@ -90,7 +92,7 @@ public class Hook : MonoBehaviour {
         audioSource.PlayOneShot(audioExplode);
     }
 
-    public void GetExplodeBarrel() {
+    public void GetExplodeObject() {
         Destroy(dragged_object);
         move_down = false;
         move_speed = 10f;
@@ -124,13 +126,13 @@ public class Hook : MonoBehaviour {
                         InLevelManager.Instance.Earning(value);
 
                     audioSource.PlayOneShot(audioCheerUp);
-                    Debug.Log("Update Miner State From Hook : CHEER_UP");
+                 //   Debug.Log("Update Miner State From Hook : CHEER_UP");
                     miner.UpdateState((int)Miner.MINER_STATE.CHEER_UP);
                     Destroy(this.dragged_object);
                     this.dragged_object = null;
                 }
                 else {
-                    Debug.Log("Update Miner State From Hook : ");
+                 //   Debug.Log("Update Miner State From Hook : ");
                     miner.UpdateState((int)Miner.MINER_STATE.IDLE);
                 }
             }
