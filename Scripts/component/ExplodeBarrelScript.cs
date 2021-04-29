@@ -11,13 +11,14 @@ public class ExplodeBarrelScript : ObjectScripts
     void OnTriggerEnter2D(Collider2D col)
     {
         // base.OnTriggerEnter2D(col);
-        if (col.CompareTag("Hook"))
+        if (col.CompareTag("Hook") && col.gameObject.GetComponent<Hook>().move_down)
         {
             col.gameObject.GetComponent<Hook>().GetExplodeObject();
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
+
         }
 
-        Instantiate(explosion, transform.position, transform.rotation);
-        Destroy(gameObject);
 
     }
 

@@ -34,7 +34,7 @@ public class ObjectScripts : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.name == "Hook")
+        if (col.gameObject.name == "Hook" && col.gameObject.GetComponent<Hook>().move_down)
         {
             Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
             is_move_follow = true;

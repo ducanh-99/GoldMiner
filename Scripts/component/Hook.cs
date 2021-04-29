@@ -19,7 +19,7 @@ public class Hook : MonoBehaviour {
     public float min_y = -5.0f;
     private float initial_y;
 
-    private bool move_down;
+    public bool move_down;
     private bool rotate_right;
     private bool can_rotate;
 
