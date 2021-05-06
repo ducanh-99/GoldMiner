@@ -42,7 +42,7 @@ public class GemsCollector : MonoBehaviour {
 		Debug.Log("Complete Status :" + ((1 << GEMS_TYPE) - 1));
 		if (collect_status == (1 << GEMS_TYPE) - 1) {
 			InLevelManager.Instance.Earning(new ValueObject { tag = "bonus_gems_collector", score = 3000 });
-				 = -1;
+				collect_status = -1;
         }
     }
 
