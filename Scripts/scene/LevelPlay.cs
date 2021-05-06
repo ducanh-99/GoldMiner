@@ -12,8 +12,8 @@ public class LevelPlay : MonoBehaviour {
     }
     
     public  void LoadLevel() {
-        //  int level_index = LevelsManager.Instance.GetCurrentLevel().index;
-        int level_index = 11;
+          int level_index = LevelsManager.Instance.GetCurrentLevel().index;
+       // int level_index = 11;
         Debug.Log("LevelPlay Level Index :"+ level_index);
          var level_prefab = Resources.Load("Levels/Level"+level_index) as GameObject;
          var level_content = Instantiate(level_prefab, new Vector3(0,0,0), transform.rotation);
