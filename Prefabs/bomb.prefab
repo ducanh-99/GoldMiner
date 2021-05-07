@@ -171,8 +171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   is_move_follow: 0
   target: {fileID: 0}
-  explosion: {fileID: 139366, guid: b185c1a9cf067374586d095111b15bd1, type: 3}
   smoke: {fileID: 2504530922077946629, guid: de87bb1cdfa32394f937a0663e1f4d5d, type: 3}
+  boom: {fileID: 120762065157392033, guid: de87bb1cdfa32394f937a0663e1f4d5d, type: 3}
 --- !u!1001 &8518270093763184515
 PrefabInstance:
   m_ObjectHideFlags: 0
