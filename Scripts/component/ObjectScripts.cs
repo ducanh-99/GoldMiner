@@ -46,6 +46,11 @@ public class ObjectScripts : MonoBehaviour
             Debug.Log(col.gameObject + " : " + gameObject.name);
             Destroy(gameObject);
         }
+        if (col.tag == "Bomb")
+        {
+            Debug.Log(col.gameObject + " : " + gameObject.name);
+            Destroy(gameObject);
+        }
         Debug.Log(col.gameObject + " : " + gameObject.name);
     }
 
