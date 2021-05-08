@@ -19,6 +19,10 @@ public class SettingMenu : MonoBehaviour {
 
     public Button btn_setting;
     public const int OPTIONS_COUNT = 4;
+
+    public AudioSource audioSource;
+    public AudioClip audioSelected;
+    public AudioClip audioChangeSetting;
     enum OPTIONS {
         SOUND,
         AUDIO,
@@ -55,13 +59,16 @@ public class SettingMenu : MonoBehaviour {
 
 
         if (Input.GetKeyDown(KeyCode.UpArrow) && open) {
+            audioSource.PlayOneShot(audioChangeSetting);
             choose_index = (choose_index + OPTIONS_COUNT  -1) % OPTIONS_COUNT;
         }
 
         else if (Input.GetKeyDown(KeyCode.DownArrow) && open) {
+            audioSource.PlayOneShot(audioChangeSetting);
             choose_index = (choose_index + OPTIONS_COUNT + 1) % OPTIONS_COUNT;
         }
         else if (Input.GetKeyDown(KeyCode.KeypadEnter) && open) {
+            audioSource.PlayOneShot(audioSelected);
             ChooseOption();
         }
         for (int i = 0; i < OPTIONS_COUNT; i++) {
