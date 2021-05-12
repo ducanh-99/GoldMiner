@@ -222,6 +222,9 @@ MonoBehaviour:
   open: 0
   UI: {fileID: 271173721}
   btn_setting: {fileID: 6151680322687182660}
+  audioSource: {fileID: 2341852}
+  audioSelected: {fileID: 8300000, guid: 8cc37f2a2a645864281ce4bceaf90ac3, type: 3}
+  audioChangeSetting: {fileID: 8300000, guid: d5c3b104c410701488a97346bdc638eb, type: 3}
   item_text:
   - {fileID: 271173720}
   - {fileID: 271173719}
