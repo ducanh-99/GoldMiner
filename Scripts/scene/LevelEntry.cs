@@ -1,10 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using UnityEngine.SceneManagement;
-using System;
 
 public class LevelEntry : MonoBehaviour {
     public Button btn_start;
@@ -17,10 +12,10 @@ public class LevelEntry : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-
         Debug.Log("Start Level Entry ");
         btn_start.onClick.AddListener(PressBtnStart);
         level = LevelsManager.Instance.GetCurrentLevel();
+
         Debug.Log("Level Entry : " + level.ToString());
         level_index_text.text = "" + (level.index);
         score_text.text = "" + level.required_score;

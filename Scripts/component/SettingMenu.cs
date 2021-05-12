@@ -1,13 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class SettingItem {
-    public string name;
     public bool on;
-    public SettingItem(string name,bool on) {
+    public string name;
+    public SettingItem(string name, bool on) {
         this.name = name;
         this.on = on;
     }
@@ -33,13 +30,15 @@ public class SettingMenu : MonoBehaviour {
     public SettingItem[] items = new SettingItem[OPTIONS_COUNT];
     public Text[] item_text = new Text[OPTIONS_COUNT];
     public int choose_index = 0;
+
     // Start is called before the first frame update
     void Start() {
         UI.SetActive(false);
         open = false;
         choose_index = 0;
+
         if (btn_setting!=null)
-        btn_setting.onClick.AddListener(OpenSetting);
+            btn_setting.onClick.AddListener(OpenSetting);
 
         items[0] = new SettingItem("Sound", true);
         items[1] = new SettingItem("Audio", true);
@@ -49,20 +48,15 @@ public class SettingMenu : MonoBehaviour {
 
     public void OpenSetting() {
         Debug.Log("Go Hwew");
-        open = true ;
+        open = true;
         InLevelManager.Instance.Pause();
-
     }
     // Update is called once per frame
     void Update() {
-
-
-
         if (Input.GetKeyDown(KeyCode.UpArrow) && open) {
             audioSource.PlayOneShot(audioChangeSetting);
             choose_index = (choose_index + OPTIONS_COUNT  -1) % OPTIONS_COUNT;
         }
-
         else if (Input.GetKeyDown(KeyCode.DownArrow) && open) {
             audioSource.PlayOneShot(audioChangeSetting);
             choose_index = (choose_index + OPTIONS_COUNT + 1) % OPTIONS_COUNT;
@@ -72,14 +66,14 @@ public class SettingMenu : MonoBehaviour {
             ChooseOption();
         }
         for (int i = 0; i < OPTIONS_COUNT; i++) {
-            item_text[i].fontStyle = 
-                i ==choose_index ? FontStyle.Bold : FontStyle.Normal;
+            item_text[i].fontStyle = i == choose_index
+                ? FontStyle.Bold
+                : FontStyle.Normal;
 
             item_text[i].text = items[i].name  + (
-                i==OPTIONS_COUNT-1?
-                    ""
-                    :
-                     items[i].on  ? " :   ON" : " :   OFF");
+                i == OPTIONS_COUNT - 1
+                    ? ""
+                    : items[i].on  ? " :   ON" : " :   OFF");
         }
 
         if (open) {
@@ -88,12 +82,11 @@ public class SettingMenu : MonoBehaviour {
         else {
             UI.SetActive(false);
         }
-
-
     }
 
     void ChooseOption() {
         if (!open) return;
+
         Debug.Log("ChooseOption"+ choose_index+" , open = "+open);
         if (choose_index < OPTIONS_COUNT-1) {
             items[choose_index].on = !items[choose_index].on;
@@ -103,10 +96,10 @@ public class SettingMenu : MonoBehaviour {
         }
     }
 
-
     public void SaveSetting() {
         open = false;
         choose_index = 0;
+
         InLevelManager.Instance.UnPause();
     }
 }
