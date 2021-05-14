@@ -1,15 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-public class Player : MonoBehaviour {
+﻿using UnityEngine;
 
+public class Player : MonoBehaviour {
     public float speed, maxSpeed ;
-    public Rigidbody2D r2;
+    public Rigidbody2D rigidbody2d;
     public Miner miner;
+
     // Start is called before the first frame update
     void Start() {
-        r2 = gameObject.GetComponent<Rigidbody2D>();
+        rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
         miner = gameObject.GetComponentInChildren<Miner>();
       
         speed = 5f;
@@ -17,12 +15,11 @@ public class Player : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Mathf.Abs(r2.velocity.x) >= 0.01 ){
+        if (Mathf.Abs(rigidbody2d.velocity.x) >= 0.01) {
             if (miner.GetState() == (int)Miner.MINER_STATE.IDLE) {
              //   Debug.Log("Update Miner State From Player : MOVING");
                 miner.UpdateState((int)Miner.MINER_STATE.MOVING);
             }
-            
         }
         else {
             if (miner.GetState() == (int)Miner.MINER_STATE.MOVING) {
@@ -36,24 +33,22 @@ public class Player : MonoBehaviour {
         if (!miner.CanMove()) return;
         float h = Input.GetAxis("Horizontal");
         maxSpeed = 3f * PowerupManager.Instance.BARROW_SPEED_FACTOR;
+
         //  Debug.Log("Get Input And Can Move :");
-        r2.AddForce((Vector2.right) * speed * h * PowerupManager.Instance.BARROW_SPEED_FACTOR);
+        rigidbody2d.AddForce((Vector2.right) * speed * h * PowerupManager.Instance.BARROW_SPEED_FACTOR);
 
         //Debug.Log("Player Speed " + r2.velocity.x);
-        if (r2.velocity.x > maxSpeed) {
-            r2.velocity = new Vector2(maxSpeed, r2.velocity.y);
+        if (rigidbody2d.velocity.x > maxSpeed) {
+            rigidbody2d.velocity = new Vector2(maxSpeed, rigidbody2d.velocity.y);
         }
-        if (r2.velocity.x < -maxSpeed) {
-            r2.velocity = new Vector2(-maxSpeed, r2.velocity.y);
+        if (rigidbody2d.velocity.x < -maxSpeed) {
+            rigidbody2d.velocity = new Vector2(-maxSpeed, rigidbody2d.velocity.y);
         };
-
-      
     }
 
     private void OnTriggerEnter2D(Collider2D col) {
-        if (col.CompareTag("DestinationFlag")){
+        if (col.CompareTag("DestinationFlag")) {
             InLevelManager.Instance.ReachDestination();
         }
-
     }
 }

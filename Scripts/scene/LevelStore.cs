@@ -31,8 +31,8 @@ public class LevelStore : MonoBehaviour {
     public Image cur_item_image;
     public Text cur_item_price_text;
     public Text cur_item_buy_text;
-    void Start() {
 
+    void Start() {
         btn_start.onClick.AddListener(PressBtnStart);
         item_count = PowerupManager.Instance.GetSaleCount();
         items = PowerupManager.Instance.ChoosePowerUpToSell();
@@ -46,14 +46,11 @@ public class LevelStore : MonoBehaviour {
     private void PressBtnStart() {
         SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_PLAY_SCENE);
     }
-
     
-
     void LoadItemList() {
         for (int i = 0; i < items.Count; i++) {
             item_text[i].text = items[i].name;
         }
-
     }
 
     // Update is called once per frame
@@ -64,18 +61,19 @@ public class LevelStore : MonoBehaviour {
     }
 
     void ChooseItem() {
-
       //  Debug.Log("Delay Time " + remain_choose_time + " , " + Time.deltaTime);
         remain_choose_time -= Time.deltaTime;
 
         if (remain_choose_time > 0) return;
         if (Input.GetKey(KeyCode.UpArrow)) {
             audioSource.PlayOneShot(audioChangeItem);
+
             choose_index = (choose_index + item_count - 1) % item_count;
             remain_choose_time = DELAY_TIME;
         }
         else if (Input.GetKey(KeyCode.DownArrow)) {
             audioSource.PlayOneShot(audioChangeItem);
+
             choose_index = (choose_index + 1) % item_count;
             remain_choose_time = DELAY_TIME;
         }
@@ -84,16 +82,11 @@ public class LevelStore : MonoBehaviour {
             item_text[i].fontStyle = i == choose_index? FontStyle.BoldAndItalic:FontStyle.Normal;
         }
 
-
         Powerup choosed_item = items[choose_index];
         cur_item_des_text.text = "" + choosed_item.description;
         cur_item_price_text.text = "" + choosed_item.price;
-        cur_item_buy_text.text = choosed_item.is_bought ?
-                "Đã mua!"
-                :
-                "Nhấn ENTER để mua!";
-        cur_item_image.sprite = 
-            Resources.Load( choosed_item.sprite, typeof(Sprite)) as Sprite;
+        cur_item_buy_text.text = choosed_item.is_bought ? "Đã mua!" : "Nhấn ENTER để mua!";
+        cur_item_image.sprite = Resources.Load(choosed_item.sprite, typeof(Sprite)) as Sprite;
     }
 
     void BuyItem() {
@@ -108,7 +101,7 @@ public class LevelStore : MonoBehaviour {
             Powerup choosed_powerup = items[choose_index];
             remain_buy_time = DELAY_TIME;
             if (!choosed_powerup.is_bought ) {
-                PowerupManager.Instance.BuyItem(choosed_powerup,false);
+                PowerupManager.Instance.BuyItem(choosed_powerup, false);
             }
         }
     }
