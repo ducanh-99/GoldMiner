@@ -55,8 +55,8 @@ public class GemsCollector : MonoBehaviour {
 
 			//Fix cứng hình ảnh đá quý trong giao diện prefab gems_collector để dễ căn chỉnh tỷ lệ: 
 			// Thu thập loại nào => set opacity = 1 cho hình ảnh tương ứng.
-			//  gems_go[gem_type.id].sprite=
-			//	 Resources.Load(gem_type.sprite, typeof(Sprite)) as Sprite;
+			// gems_go[gem_type.id].sprite=
+			// 	Resources.Load(gem_type.sprite, typeof(Sprite)) as Sprite;
 			Image gems = gems_go[gem_type.id];
 			gems.color= new Color(255, 255,255,1);
 			CheckCompleteCollect(gem_type.id);
