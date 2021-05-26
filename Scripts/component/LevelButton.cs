@@ -26,12 +26,21 @@ public class LevelButton : MonoBehaviour {
     }
 
     public void LoadLevel() {
-        Debug.Log(level.index);
+        SoundManager soundManager = SoundManager.Instance();
+
         var furthest_level=LevelsManager.Instance.GetFurthestLevel();
         if (level.index <= furthest_level) {
+            if (soundManager != null) {
+                soundManager.PlaySound((int)SoundManager.Sound.Button_Click);
+            }
             InLevelManager.Instance.GetDataFromPlayerManager();
             LevelsManager.Instance.ChooseLevel(level.index);
             SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_ENTRY_SCENE);
+        }
+        else {
+            if (soundManager != null) {
+                soundManager.PlaySound((int)SoundManager.Sound.Disable_Level);
+            }
         }
 
 

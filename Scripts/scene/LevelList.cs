@@ -45,12 +45,9 @@ public class LevelList : MonoBehaviour
         number_of_level = levels.Count;
 
         int totalPages = Mathf.CeilToInt((float)number_of_level / amount_per_page);
-       // Debug.Log("iconDimensions" + iconDimensions);
-      //  Debug.Log("levels count : " + number_of_levels);
-       // Debug.Log("maxInARow" + maxInARow);
-       // Debug.Log("maxInACol" + maxInACol);
         LoadPanels(totalPages); 
     }
+
     void LoadPanels(int numberOfPanels) {
        // Debug.Log(numberOfPanels);
         GameObject panel_clone = Instantiate(levels_container) as GameObject;
@@ -75,7 +72,6 @@ public class LevelList : MonoBehaviour
     void SetUpGrid(GameObject panel) {
         GridLayoutGroup grid= panel.AddComponent<GridLayoutGroup>();
         grid.cellSize = new Vector2(item_dimensions.width, item_dimensions.height);
-       // Debug.Log("Cell Size " + item_dimensions.width + item_dimensions.height);
         grid.childAlignment = TextAnchor.MiddleCenter;
         grid.spacing = icon_spacing;
     }
@@ -97,7 +93,6 @@ public class LevelList : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         

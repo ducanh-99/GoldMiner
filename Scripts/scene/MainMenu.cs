@@ -24,13 +24,22 @@ public class MainMenu : MonoBehaviour
         btn_exit.onClick.AddListener(PressExitBtn);
     }
 
+
+
+
     private void PressContinueBtn() {
-        Debug.Log("Press ContinueBtn on MainMenu");
+        SoundManager soundManager = SoundManager.Instance();
+        if (soundManager != null) {
+            soundManager.PlaySound((int)SoundManager.Sound.Button_Click);
+        }
         SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_LIST_SCENE);
     }
 
     private void PressNewGameBtn() {
-        audioSource.PlayOneShot(audioClick);
+        SoundManager soundManager = SoundManager.Instance();
+        if (soundManager != null) {
+            soundManager.PlaySound((int)SoundManager.Sound.Button_Click);
+        }
 
         Debug.Log("Press NewGameBtn on MainMenu");
         LevelsManager.Instance.Reset();
@@ -38,18 +47,15 @@ public class MainMenu : MonoBehaviour
         SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_LIST_SCENE);
     }
 
-    private void PressSettingBtn() {
-        Debug.Log("Press SettingBtn on MainMenu");
-        SceneHandler.Instance.OpenScene(SceneHandler.SETTING_SCENE);
-    }
-
-    private void PressInstructionBtn() {
-        Debug.Log("Press Instruction on MainMenu");
-        SceneHandler.Instance.OpenScene(SceneHandler.INSTRUCTION);
-    }
-
-    private void PressExitBtn() {
-        Debug.Log("Press QuitBtn on MainMenu");
+    private void PressExitBtn() {   
+        SoundManager soundManager = SoundManager.Instance();
+        if (soundManager != null) {
+            soundManager.PlaySound((int)SoundManager.Sound.Button_Click);
+        }
         Application.Quit();
+    }
+
+    private void OnDestroy() {
+        
     }
 }

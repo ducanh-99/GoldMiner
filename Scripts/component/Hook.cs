@@ -8,10 +8,7 @@ public class Hook : MonoBehaviour {
     public float rotate_speed = 70f;
     private float rotate_angle;
 
-    public AudioSource audioSource;
-    public AudioClip audioDragging;
-    public AudioClip audioExplode;
-    public AudioClip audioCheerUp;
+
 
     public float move_speed = 3f;
     public static float HOOK_SPEED = 3f;
@@ -26,10 +23,13 @@ public class Hook : MonoBehaviour {
     private GameObject dragged_object = null;
     public Miner miner;
     public GameObject explosion;
+
+    SoundManager soundManager;
     private void Awake() {
     }
     // Start is called before the first frame update
     void Start() {
+        soundManager = SoundManager.Instance();
         initial_y = transform.position.y;
  
         can_rotate = true;
@@ -69,9 +69,10 @@ public class Hook : MonoBehaviour {
             (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetMouseButtonDown(0))
             && !(InLevelManager.Instance.pause)
             && (miner.GetState() == (int)Miner.MINER_STATE.IDLE)) {
-            audioSource.clip= audioDragging;
-            audioSource.loop = true;
-            audioSource.Play();
+
+            if (soundManager != null) {
+                soundManager.PlaySound((int)SoundManager.Sound.Drag,true);
+            }
 
 
             if (can_rotate) {
@@ -89,20 +90,24 @@ public class Hook : MonoBehaviour {
         Destroy(dragged_object);
         move_down = false;
         move_speed = 10f;
-        audioSource.PlayOneShot(audioExplode);
+
     }
 
     public void GetExplodeObject() {
         Destroy(dragged_object);
         move_down = false;
         move_speed = 10f;
-        audioSource.PlayOneShot(audioExplode);
+        if (soundManager != null) {
+            soundManager.PlaySound((int)SoundManager.Sound.Explode);
+        }
     }
     public void GetBombSmoke(){
         Destroy(dragged_object);
         move_down = false;
         move_speed = 10f;
-        audioSource.PlayOneShot(audioExplode);
+        if (soundManager != null) {
+            soundManager.PlaySound((int)SoundManager.Sound.Explode);
+        }
     }
     void MoveRope() {
         if (can_rotate) {
@@ -122,17 +127,22 @@ public class Hook : MonoBehaviour {
             }
 
             if (temp.y >= initial_y && move_down==false) {
+
                 can_rotate = true;
                 move_speed = HOOK_SPEED;
-                audioSource.Stop();
+
+                if (soundManager != null) {
+                    soundManager.PlaySound((int)SoundManager.Sound.Drag, true,true);
+                };
 
                 if (this.dragged_object!=null) {
                     ValueObject value= ObjectManagerment.Instance.GetValueObject(this.dragged_object.tag);
                     if (value != null)
                         InLevelManager.Instance.Earning(value);
 
-                    audioSource.PlayOneShot(audioCheerUp);
-                 //   Debug.Log("Update Miner State From Hook : CHEER_UP");
+                    if (soundManager != null) {
+                        soundManager.PlaySound((int)SoundManager.Sound.Cheer);
+                    }
                     miner.UpdateState((int)Miner.MINER_STATE.CHEER_UP);
                     Destroy(this.dragged_object);
                     this.dragged_object = null;
@@ -174,7 +184,6 @@ public class Hook : MonoBehaviour {
             move_speed -= value_object.weight;
 
             move_speed *= PowerupManager.Instance.MINER_STRENGTH_FACTOR;
-           // Debug.Log("Move Speed Of Hook :" + move_speed);
 
         }
     }

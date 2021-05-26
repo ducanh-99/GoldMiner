@@ -28,7 +28,7 @@ public class PowerupManager : MonoBehaviour
 
     public int STONE_COLLECTION_FACTOR=1;
     public int POLISH_DIAMOND_FACTOR=1;
-    public  int TIME_PLUS_ADDITION=15;
+    public int TIME_PLUS_ADDITION=15;
     public int MINER_STRENGTH_FACTOR=1;
     public int BARROW_SPEED_FACTOR=1;
     public int LUCKY_FLOWER_FACTOR=1;
@@ -45,7 +45,7 @@ public class PowerupManager : MonoBehaviour
             new Powerup("Dynamite","Thuốc nổ","Ném thuốc nổ để phá hủy vật thể đang kéo lên!",100,"dynamite")},
         {
             "StoneCollection",
-            new Powerup("StoneCollection","Bộ sưu tập đá","Tăng giá trị của đá lên 3 lần",200,"stone_collection")
+            new Powerup("StoneCollection","Sách đá","Tăng giá trị của đá lên 3 lần",200,"stone_collection")
         },
         {
             "LuckyFlower",
@@ -57,7 +57,7 @@ public class PowerupManager : MonoBehaviour
         },
         {
             "PolishDiamond",
-            new Powerup("PolishDiamond","Đánh bóng kim cương","Tăng giá trị kim cương lên 2 lần",200,"polish_diamond")
+            new Powerup("PolishDiamond","Đánh bóng KC","Tăng giá trị kim cương lên 2 lần",200,"polish_diamond")
         },
         {
             "PowerDrink",
@@ -82,10 +82,10 @@ public class PowerupManager : MonoBehaviour
     }
 
     public bool BuyItem(Powerup item,bool free) {
-        if (item.price > PlayerManager.Instance.GetMoney()) return false;
+        if (free== false && item.price > PlayerManager.Instance.GetMoney()) return false;
         item.is_bought = true;
-        PlayerManager.Instance.AddMoney(-item.price);
-        Debug.Log("Buy Item "+ item.name);
+        if (free==false)
+            PlayerManager.Instance.AddMoney(-item.price);
         switch (item.tag) {
             case "StoneCollection":
                 STONE_COLLECTION_FACTOR = 2;
@@ -134,9 +134,11 @@ public class PowerupManager : MonoBehaviour
     public List<Powerup> GetSaleItems() {
         return sales;
     }
-    public List<Powerup> ChoosePowerUpToSell() {
+    public List<Powerup> ChoosePowerUpToSell(bool is_reset=true) {
 
-        ResetPowerUp();
+        // Reset power up when enter new level
+        // No reset when playing, player drag a aladdin lamp
+        if (is_reset) ResetPowerUp();
         sales = new List<Powerup>();
         List<Powerup> powers_l = new List<Powerup>(powers_dict.Values);
         int last_i = 0;

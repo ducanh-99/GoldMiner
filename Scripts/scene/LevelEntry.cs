@@ -25,6 +25,10 @@ public class LevelEntry : MonoBehaviour {
     }
 
     private void PressBtnStart() {
+        SoundManager soundManager = SoundManager.Instance();
+        if (soundManager != null) {
+            soundManager.PlaySound((int)SoundManager.Sound.Button_Click);
+        }
         InLevelManager.Instance.SetupLevel();
         SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_STORE_SCENE);
     }

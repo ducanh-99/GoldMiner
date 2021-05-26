@@ -19,12 +19,20 @@ public class Player : MonoBehaviour {
             if (miner.GetState() == (int)Miner.MINER_STATE.IDLE) {
              //   Debug.Log("Update Miner State From Player : MOVING");
                 miner.UpdateState((int)Miner.MINER_STATE.MOVING);
+                SoundManager soundManager = SoundManager.Instance();
+                if (soundManager != null) {
+                    soundManager.PlaySound((int)SoundManager.Sound.Barrow_Move,true,false);
+                }
             }
         }
         else {
             if (miner.GetState() == (int)Miner.MINER_STATE.MOVING) {
                // Debug.Log("Update Miner State From Player : IDLE");
                 miner.UpdateState((int)Miner.MINER_STATE.IDLE);
+                SoundManager soundManager = SoundManager.Instance();
+                if (soundManager != null) {
+                    soundManager.PlaySound((int)SoundManager.Sound.Barrow_Move, true, true);
+                }
             }
         }
     }

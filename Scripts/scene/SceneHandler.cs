@@ -34,23 +34,24 @@ public class SceneHandler : MonoBehaviour
     public void OpenScene(string toScene) {
         scene_history.Push(toScene);
         string pre_scene = SceneManager.GetActiveScene().name;
-        Debug.Log("Current Scene " + pre_scene);
         PlayerPrefs.SetString(PREVIOUS_SCENE_KEY, pre_scene);
-       
-        SceneManager.LoadScene(toScene);
 
+        LoadScene(toScene);
+
+    }
+    
+    public void LoadScene(string scene) {
+        SceneManager.LoadScene(scene);
+        Debug.Log("Load Scene");
     }
 
     public bool GoBack() {
         bool return_value = false;
-        Debug.Log("Press Btn Back"+ scene_history.Count);
-        Debug.Log("Press Btn Back" + scene_history.Peek());
         if (scene_history.Count >= 2)  //Checking that we have actually switched scenes enough to go back to a previous scene
         {
             return_value = true;
             scene_history.Pop();
-            Debug.Log("Come here" + scene_history.Peek());
-            SceneManager.LoadScene(scene_history.Peek());
+            LoadScene(scene_history.Peek());
         }
 
         return return_value;

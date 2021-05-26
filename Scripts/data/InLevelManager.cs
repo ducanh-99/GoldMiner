@@ -14,8 +14,6 @@ public class InLevelManager : MonoBehaviour
 
 	private static InLevelManager instance;
 	public GemsCollector gems_collector;
-
-	public bool open_lamp_yet;
 	public static InLevelManager Instance{
 		get
 		{
@@ -30,6 +28,11 @@ public class InLevelManager : MonoBehaviour
 	}
 	public void EnterLevel() {
 		StartCoroutine("CountDown");
+		SoundManager soundManager = SoundManager.Instance();
+		if (soundManager != null) {
+			Debug.Log("Load Timer Sound");
+			//soundManager.PlaySound((int)SoundManager.Sound.Timer,true);
+		}
 	}
 
 	public void SetupLevel() {
@@ -37,7 +40,6 @@ public class InLevelManager : MonoBehaviour
 		instance.time = instance.level.time;
 		instance.distance = instance.level.distance;
 		instance.score = 0;
-		instance.open_lamp_yet = false;
 	}
 
 	public void Pause() {
@@ -80,9 +82,13 @@ public class InLevelManager : MonoBehaviour
 			value_score *= PowerupManager.Instance.STONE_COLLECTION_FACTOR;
 		} 
 		else if(value.tag.Contains("AladdinLamp")){
-			open_lamp_yet = true;
-			Debug.Log("Get Aladdin Lamp ");
-			
+			GameObject game_obj = GameObject.FindWithTag("AladdinLampModal");
+			if (game_obj == null) {
+				Debug.Log("Setting Modal Object Null ");
+				return;
+			}
+
+			game_obj.GetComponent<AladdinLampModal>().SwitchModal();
 		}
 		else if (value.tag.Contains("Gem")) {
 			Debug.Log("Collect A Gem " + value.tag);
@@ -120,6 +126,12 @@ public class InLevelManager : MonoBehaviour
     }
 	public void ReachDestination() {
 		CheckPass();
+		SoundManager soundManager = SoundManager.Instance();
+		if (soundManager != null) {
+			soundManager.PlaySound((int)SoundManager.Sound.Barrow_Move, true, true);
+			soundManager.PlaySound((int)SoundManager.Sound.End_Level, false, false);
+		}
+
 		SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_RESULT_SCENE);
 	}
 
@@ -133,6 +145,11 @@ public class InLevelManager : MonoBehaviour
     }
 	public void TimeOut() {
 		FailLevel();
+		SoundManager soundManager = SoundManager.Instance();
+		if (soundManager != null) {
+			soundManager.PlaySound((int)SoundManager.Sound.Barrow_Move, true, true);
+			soundManager.PlaySound((int)SoundManager.Sound.End_Level, false, false);
+		}
 		SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_RESULT_SCENE);
 	}
 
