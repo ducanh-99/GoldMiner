@@ -102,4 +102,5 @@ public class SettingMenu : MonoBehaviour {
 
         InLevelManager.Instance.UnPause();
     }
+    
 }
