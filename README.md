@@ -18,6 +18,13 @@ Unity, C#: platform hộ trợ tối đa cho việc lập trình game
 - Tính năng về suy tầm đá quý: Bạn có một khung đá quý gồm 5 viên đá quý với từng màu sắc, hình dáng riêng biệt, nhiệm vụ của bạn là sưu tầm tất cả những viên đá quý đấy, sau khi thu thập xong bạn sẽ có một phần thưởng đặc biệt
 - Thêm mới các loại đối tượng có thể móc được: đầu lâu, đá kim cương, ...
 
+## Các nhánh của dự án
+
+- Base: toàn bộ các config đầu của dự án
+- main: nhánh chính của dự án
+- maintain: nhánh chỉnh sửa dự án khi gặp lỗi
+- add_readme: update_readme
+
 ## Thành Viên
 - Nguyễn Đức Anh (trưởng nhóm)
 - Lương Tiến Mạnh
