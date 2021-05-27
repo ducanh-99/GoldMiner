@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.0000076294, y: 15.8}
-  m_SizeDelta: {x: 57.364716, y: 62.821808}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4843467171945170788
 CanvasRenderer:
@@ -105,7 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4843467172399615166}
   m_Layer: 5
-  m_Name: Star_3
+  m_Name: Star3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,7 +131,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 27.897, y: 57.7}
-  m_SizeDelta: {x: 250, y: 100}
+  m_SizeDelta: {x: 350, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4843467172539400648
 GameObject:
@@ -168,8 +168,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 73.9, y: -0.000011444}
-  m_SizeDelta: {x: 57.364716, y: 62.821808}
+  m_AnchoredPosition: {x: 115.7, y: -0.000012398}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4843467172539400644
 CanvasRenderer:
@@ -263,8 +263,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -71.9, y: 0}
-  m_SizeDelta: {x: 57.364716, y: 62.821808}
+  m_AnchoredPosition: {x: -116.4, y: 0.0000070333}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8294507065263877066
 CanvasRenderer:

@@ -7,7 +7,6 @@ public class LevelEntry : MonoBehaviour {
     public Text level_index_text;
     public Text score_text;
     public Text time_text;
-    public Text distance_text;
     public Text dynamite_text;
 
     // Start is called before the first frame update
@@ -20,11 +19,16 @@ public class LevelEntry : MonoBehaviour {
         level_index_text.text = "" + (level.index);
         score_text.text = "" + level.required_score;
         time_text.text = "" + level.time;
-        distance_text.text = "" + level.distance + "m";
         dynamite_text.text = "" + InLevelManager.Instance.dynamite;
     }
 
     private void PressBtnStart() {
+        SoundManager soundManager = SoundManager.Instance();
+        if (soundManager != null) {
+            soundManager.PlaySound((int)SoundManager.Sound.Button_Click);
+        }
+
+        PowerupManager.Instance.ChoosePowerUpToSell();
         InLevelManager.Instance.SetupLevel();
         SceneHandler.Instance.OpenScene(SceneHandler.LEVEL_STORE_SCENE);
     }
