@@ -18,10 +18,11 @@ public class LevelResult : MonoBehaviour {
     public Text target_text;
     public Image result_image;
     public bool is_passed;
-
+    SoundManager soundManager;
     public GameObject[] star_prefabs = new GameObject[3];
 
     void Awake() {
+        soundManager = SoundManager.Instance();
         btn_main_menu.onClick.AddListener(PressBtnMainMenu);
         btn_main_action.onClick.AddListener(PressBtnMainAction);
 
@@ -56,7 +57,10 @@ public class LevelResult : MonoBehaviour {
     }
 
     private void PressBtnMainAction() {
-        if (InLevelManager.Instance.is_passed) {
+        if (soundManager != null) {
+            soundManager.PlaySound((int)SoundManager.Sound.Button_Click);
+        }
+        if (InLevelManager.Instance.is_passed && !InLevelManager.Instance.commit_pass) {
             LevelsManager.Instance.NextLevel();
         }
           
@@ -64,7 +68,11 @@ public class LevelResult : MonoBehaviour {
     }
 
     private void PressBtnMainMenu() {
-        if (InLevelManager.Instance.is_passed) {
+        if (soundManager != null) {
+            soundManager.PlaySound((int)SoundManager.Sound.Button_Click);
+        }
+
+        if (InLevelManager.Instance.is_passed && !InLevelManager.Instance.commit_pass) {
             LevelsManager.Instance.NextLevel();
         }
         InLevelManager.Instance.ReturnDataForPlayerManager();

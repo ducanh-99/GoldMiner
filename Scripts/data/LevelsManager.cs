@@ -39,16 +39,16 @@ public class LevelsManager : MonoBehaviour
 		if (PlayerPrefs.HasKey(SETUP_LEVEL_KEY)) return;
 
 		list = new List<Level>();
-		list.Add(new Level(1, 2000, 2000, 180));
-		list.Add(new Level(2, 2250, 2000, 1000));
-		list.Add(new Level(3, 2500, 2000, 100));
-		list.Add(new Level(4, 3000, 2000, 1000));
-		list.Add(new Level(5, 3250, 2000, 1000));
-		list.Add(new Level(6, 3500, 2000, 1000));
-		list.Add(new Level(7, 4000, 2000, 1000));
-		list.Add(new Level(8, 4250, 2000, 1000));
-		list.Add(new Level(9, 4500, 2000, 1000));
-		list.Add(new Level(10,5000, 2000, 1000));
+		list.Add(new Level(1, 1000, 180));
+		list.Add(new Level(2, 2250, 120));
+		list.Add(new Level(3, 2500, 150));
+		list.Add(new Level(4, 3000, 180));
+		list.Add(new Level(5, 3250, 180));
+		list.Add(new Level(6, 3500, 180));
+		list.Add(new Level(7, 4000, 180));
+		list.Add(new Level(8, 4250, 180));
+		list.Add(new Level(9, 4500, 180));
+		list.Add(new Level(10,5000, 180));
 		furthest_level_index = 1 ;
 		choosed_level_index = 1;
 
@@ -84,6 +84,7 @@ public class LevelsManager : MonoBehaviour
 		if (furthest_level_index<list.Count-1)
 			furthest_level_index++;
 		choosed_level_index = furthest_level_index;
+		InLevelManager.Instance.CommitPassLevel();
     }
 
 	public int GetLevelCount() {

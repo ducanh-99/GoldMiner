@@ -9,7 +9,7 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour {
 	public static string SETUP_PLAYER_KEY = "setup_player";
 	private static PlayerManager instance;
-	public static string FILE_PATH = Application.persistentDataPath + "/player.dat";
+	public static string FILE_PATH;
 
 	private  int money;
 	private int dynamite;
@@ -24,6 +24,7 @@ public class PlayerManager : MonoBehaviour {
 	}
 
 	private void Awake() {
+		FILE_PATH = Application.persistentDataPath + "/player.dat";
 		LoadFromFile();
 	}
 

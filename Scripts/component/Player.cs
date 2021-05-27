@@ -5,6 +5,8 @@ public class Player : MonoBehaviour {
     public Rigidbody2D rigidbody2d;
     public Miner miner;
 
+
+
     // Start is called before the first frame update
     void Start() {
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
@@ -19,12 +21,20 @@ public class Player : MonoBehaviour {
             if (miner.GetState() == (int)Miner.MINER_STATE.IDLE) {
              //   Debug.Log("Update Miner State From Player : MOVING");
                 miner.UpdateState((int)Miner.MINER_STATE.MOVING);
+                SoundManager soundManager = SoundManager.Instance();
+                if (soundManager != null) {
+                    soundManager.PlaySound((int)SoundManager.Sound.Barrow_Move,true,false);
+                }
             }
         }
         else {
             if (miner.GetState() == (int)Miner.MINER_STATE.MOVING) {
                // Debug.Log("Update Miner State From Player : IDLE");
                 miner.UpdateState((int)Miner.MINER_STATE.IDLE);
+                SoundManager soundManager = SoundManager.Instance();
+                if (soundManager != null) {
+                    soundManager.PlaySound((int)SoundManager.Sound.Barrow_Move, true, true);
+                }
             }
         }
     }
@@ -44,6 +54,11 @@ public class Player : MonoBehaviour {
         if (rigidbody2d.velocity.x < -maxSpeed) {
             rigidbody2d.velocity = new Vector2(-maxSpeed, rigidbody2d.velocity.y);
         };
+
+
+        InLevelManager.Instance.SetPlayerPos(this.transform.position.x);
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D col) {

@@ -39,7 +39,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 464.5, y: 435}
-  m_SizeDelta: {x: 925, y: 175}
+  m_SizeDelta: {x: 1280, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1312182587347124392
 Canvas:
@@ -116,13 +116,12 @@ MonoBehaviour:
   level:
     index: 0
     required_score: 0
-    distance: 0
     time: 0
     star: 0
   dynamite_text: {fileID: 6279055851796085293}
   earning_text: {fileID: 6279055852196659917}
   time_text: {fileID: 6279055852211541352}
-  target_text: {fileID: 6279055853781128250}
+  distance_text: {fileID: 6279055853781128250}
   level_index_text: {fileID: 6279055853392928694}
 --- !u!1 &6279055851796085295
 GameObject:
@@ -236,8 +235,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030518, y: 28.3}
-  m_SizeDelta: {x: 92.68976, y: 39.213043}
+  m_AnchoredPosition: {x: 24.17, y: 28.46}
+  m_SizeDelta: {x: 197.38171, y: 38.38034}
   m_Pivot: {x: 0.5, y: 0.280938}
 --- !u!222 &6279055852196659916
 CanvasRenderer:
@@ -394,8 +393,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -375.51, y: -12.79}
-  m_SizeDelta: {x: 173.97287, y: 149.42581}
+  m_AnchoredPosition: {x: -535.1, y: -9.6}
+  m_SizeDelta: {x: 218.54318, y: 148.67435}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6279055852730153549
 CanvasRenderer:
@@ -471,7 +470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 343.87, y: 22.19}
+  m_AnchoredPosition: {x: 496, y: 18.636}
   m_SizeDelta: {x: 210.4541, y: 130.62106}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6279055853059824261
@@ -601,7 +600,7 @@ GameObject:
   - component: {fileID: 6279055853781128249}
   - component: {fileID: 6279055853781128250}
   m_Layer: 5
-  m_Name: target
+  m_Name: distance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -623,8 +622,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -13.9}
-  m_SizeDelta: {x: 78.71661, y: 39.213043}
+  m_AnchoredPosition: {x: -2.08, y: -13.49}
+  m_SizeDelta: {x: 149.89055, y: 36.729553}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6279055853781128249
 CanvasRenderer:
