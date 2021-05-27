@@ -28,16 +28,12 @@ public class LevelStore : MonoBehaviour {
 
     void Start() {
         btn_start.onClick.AddListener(PressBtnStart);
-        item_count = PowerupManager.Instance.GetSaleCount();
-        items = PowerupManager.Instance.ChoosePowerUpToSell();
 
         choose_index = 0;
         for (int i = 0; i < 4; i++) {
             int index = i;
             btn_item[i].onClick.AddListener(() => ChooseItem(index));
         }
-
-        LoadItemList();
     }
 
 
@@ -57,6 +53,9 @@ public class LevelStore : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
+        item_count = PowerupManager.Instance.GetSaleCount();
+        items = PowerupManager.Instance.GetPowerUpToSell();
+        LoadItemList();
         wallet_text.text = "" + PlayerManager.Instance.GetMoney();
         for (int i = 0; i < items.Count; i++) {
             btn_item[i].GetComponentInChildren<Text>().fontStyle = i == choose_index ?
@@ -64,7 +63,6 @@ public class LevelStore : MonoBehaviour {
                 :
                 FontStyle.Normal;
         }
-
         storeItemObj.GetComponent<StoreItem>().UpdateSelectedItem(items[choose_index]);
     }
 

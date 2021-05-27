@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Powerup
@@ -134,6 +136,10 @@ public class PowerupManager : MonoBehaviour
     public List<Powerup> GetSaleItems() {
         return sales;
     }
+
+    public List<Powerup> GetPowerUpToSell() {
+        return sales;
+    }
     public List<Powerup> ChoosePowerUpToSell(bool is_reset=true) {
 
         // Reset power up when enter new level
@@ -141,16 +147,21 @@ public class PowerupManager : MonoBehaviour
         if (is_reset) ResetPowerUp();
         sales = new List<Powerup>();
         List<Powerup> powers_l = new List<Powerup>(powers_dict.Values);
+
+        var shuffled_arr = powers_l.OrderBy(x => Guid.NewGuid()).ToList();
         int last_i = 0;
         int temp;
         int powers_count = powers_dict.Count;
         for (int i = 0; i < SALE_COUNT; i++) {
-            temp = Random.Range(last_i, powers_count - (SALE_COUNT - i)+1);
-    
-            sales.Add( powers_l[temp]);
-            last_i = temp + 1;
+            // temp = Random.Range(last_i, powers_count - (SALE_COUNT - i)+1);
+            //   Debug.Log("Choose Item :" + temp);
+            sales.Add(shuffled_arr[i]);
+          //  sales.Add( powers_l[temp]);
+           // last_i = temp + 1;
           
         };
+
+        Debug.Log("End ");
         return sales;
     }
 

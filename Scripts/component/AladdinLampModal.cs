@@ -22,6 +22,7 @@ public class AladdinLampModal : MonoBehaviour {
     }
 
     public void SwitchModal() {
+        PowerupManager.Instance.ChoosePowerUpToSell(false);
         choosed_item = -1;
         if (soundManager != null) {
             soundManager.PlaySound((int)SoundManager.Sound.Button_Click);
@@ -29,7 +30,7 @@ public class AladdinLampModal : MonoBehaviour {
         open = !open;
         if (open) {
             item_count = PowerupManager.Instance.GetSaleCount();
-            items= PowerupManager.Instance.ChoosePowerUpToSell(false);
+            items= PowerupManager.Instance.GetPowerUpToSell();
             InLevelManager.Instance.Pause();
             LoadItemList();
         }
