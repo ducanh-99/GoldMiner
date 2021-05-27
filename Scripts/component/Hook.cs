@@ -176,7 +176,6 @@ public class Hook : MonoBehaviour {
         ValueObject value_object = ObjectManagerment.Instance.GetValueObject(col_object.tag);
 
         if (value_object != null) {
-            //Debug.Log("Value Object :" + value_object.score);
 
             move_down = false;
           //  col_object.GetComponent<ObjectScripts>().SetTarget(transform);
@@ -185,6 +184,11 @@ public class Hook : MonoBehaviour {
 
             move_speed *= PowerupManager.Instance.MINER_STRENGTH_FACTOR;
 
+        }
+        else {
+            if (col.CompareTag("ObstacleBar")) {
+                move_down = false;
+            }
         }
     }
 

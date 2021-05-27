@@ -5,6 +5,8 @@ public class Player : MonoBehaviour {
     public Rigidbody2D rigidbody2d;
     public Miner miner;
 
+
+
     // Start is called before the first frame update
     void Start() {
         rigidbody2d = gameObject.GetComponent<Rigidbody2D>();
@@ -52,6 +54,11 @@ public class Player : MonoBehaviour {
         if (rigidbody2d.velocity.x < -maxSpeed) {
             rigidbody2d.velocity = new Vector2(-maxSpeed, rigidbody2d.velocity.y);
         };
+
+
+        InLevelManager.Instance.SetPlayerPos(this.transform.position.x);
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D col) {

@@ -47,7 +47,8 @@ public class SceneHandler : MonoBehaviour
 
     public bool GoBack() {
         bool return_value = false;
-        if (scene_history.Count >= 2)  //Checking that we have actually switched scenes enough to go back to a previous scene
+        Debug.Log("Pre Scene  :" + scene_history.Peek());
+        if (scene_history.Count >= 2  )  //Checking that we have actually switched scenes enough to go back to a previous scene
         {
             return_value = true;
             scene_history.Pop();

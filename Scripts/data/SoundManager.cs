@@ -14,7 +14,7 @@ public class SoundManager : MonoBehaviour {
         Explode,
         Barrow_Move,
         End_Level,
-        Disable_Level
+        Button_Disable
     }
 
     private static SoundManager instance;
@@ -33,7 +33,7 @@ public class SoundManager : MonoBehaviour {
         {(int)Sound.Explode,"explode" },
         {(int)Sound.Barrow_Move,"barrow_move" },
         {(int)Sound.End_Level,"end_level" },
-        {(int)Sound.Disable_Level,"disable_level" },
+        {(int)Sound.Button_Disable,"disable_level" },
 
     };
 

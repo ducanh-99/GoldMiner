@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UB.Simple2dWeatherEffects.Standard;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,12 +9,17 @@ public class InLevelManager : MonoBehaviour
 	public Level level;
 
 
-	public int time, distance, score, dynamite;
+	public int time, distance,score, dynamite;
 	public bool pause;
 	public bool is_passed;
+	public bool commit_pass;
 
 	private static InLevelManager instance;
 	public GemsCollector gems_collector;
+
+	public float des_pos = -1;
+	D2FogsPE fog = null;
+	public int FOG_CHANGE_CYCLE = 10;
 	public static InLevelManager Instance{
 		get
 		{
@@ -26,19 +32,33 @@ public class InLevelManager : MonoBehaviour
 			return instance;
 		}
 	}
+
+	public void CommitPassLevel() {
+		commit_pass = true;
+    }
+
+	public void SetDestinationPos(float f) {
+		Debug.Log("Des Pos " + f);
+		this.des_pos = f;
+    }
+
+	public void SetPlayerPos(float f) {
+		if (this.des_pos == -1) distance = 2000;
+		this.distance =((int) (this.des_pos-f))*20;
+    }
 	public void EnterLevel() {
 		StartCoroutine("CountDown");
 		SoundManager soundManager = SoundManager.Instance();
 		if (soundManager != null) {
 			Debug.Log("Load Timer Sound");
-			//soundManager.PlaySound((int)SoundManager.Sound.Timer,true);
 		}
 	}
 
 	public void SetupLevel() {
+		is_passed = false;
+		commit_pass = false;
 		instance.level = LevelsManager.Instance.GetCurrentLevel();
 		instance.time = instance.level.time;
-		instance.distance = instance.level.distance;
 		instance.score = 0;
 	}
 
@@ -104,9 +124,23 @@ public class InLevelManager : MonoBehaviour
 	public IEnumerator CountDown() {
 		while (time>0) {
 			time--;
+			if (time % FOG_CHANGE_CYCLE == 0) ChangeFog();
 			yield return new WaitForSeconds(1);
 		}
 		if (time <= 0) TimeOut();
+	}
+
+	public void SetupFog(D2FogsPE fog) {
+		this.fog = fog;
+    }
+
+	public void ChangeFog() {
+		if (fog == null) return;
+		System.Random random = new System.Random();
+		fog.Density = (float)random.Next(20,150) / 100;
+		fog.Size = (float)random.Next(100, 250) / 100;
+		fog.HorizontalSpeed = (float)random.Next(40, 200) / 100;
+		Debug.Log(fog.Density + " " + fog.Size + "  " + fog.HorizontalSpeed);
 	}
 
 	public void CheckPass() {

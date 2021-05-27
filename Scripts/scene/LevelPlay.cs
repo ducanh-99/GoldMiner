@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using System;
+using  UB.Simple2dWeatherEffects.Standard;
 
 public class LevelPlay : MonoBehaviour {
     public Button btn_pause;
@@ -12,6 +13,7 @@ public class LevelPlay : MonoBehaviour {
         LoadLevel();
         btn_pause.onClick.AddListener(PauseGame);
     }
+
 
     public void PauseGame() {
 
@@ -38,7 +40,18 @@ public class LevelPlay : MonoBehaviour {
             Debug.Log("Detect Gems Collector");
             InLevelManager.Instance.SetGemsCollector(gems.GetComponent<GemsCollector>());
         }
-     
+
+        GameObject des_flag = GameObject.FindGameObjectWithTag("DestinationFlag");
+        if (des_flag != null) {
+            Debug.Log("Detect  des_flag"+ des_flag.transform.position.x);
+            InLevelManager.Instance.SetDestinationPos(des_flag.transform.position.x);
+        }
+        else {
+            InLevelManager.Instance.SetDestinationPos(-1);
+        }
+
+
+        InLevelManager.Instance.SetupFog(gameObject.GetComponent<D2FogsPE>());
 
         InLevelManager.Instance.EnterLevel();
     }

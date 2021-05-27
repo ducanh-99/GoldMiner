@@ -41,7 +41,11 @@ public class StoreItem : MonoBehaviour
     public void BuyItem() {
         SoundManager soundManager = SoundManager.Instance();
         if (soundManager != null) {
-            soundManager.PlaySound((int)SoundManager.Sound.Buy_Item);
+            soundManager.PlaySound(
+                 item.is_bought || item.price > PlayerManager.Instance.GetMoney() ? 
+                    (int)SoundManager.Sound.Button_Disable
+                    :
+                    (int)SoundManager.Sound.Button_Click);
         }
         if (item.is_bought) return;
         PowerupManager.Instance.BuyItem(item, false);

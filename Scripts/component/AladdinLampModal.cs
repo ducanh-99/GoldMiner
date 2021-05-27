@@ -40,7 +40,7 @@ public class AladdinLampModal : MonoBehaviour {
         for (int i = 0; i < items.Count; i++) {
             int index = i;
             images[i].sprite = Resources.Load(items[i].sprite, typeof(Sprite)) as Sprite;
-            images[i].color = new Color(255, 255, 255, 1);
+            images[i].color = new Color(255, 255, 255, 0);
             container[i].onClick.AddListener(() => ChooseItem(index));
             container[i].GetComponent<Image>().color = Color.white;
 

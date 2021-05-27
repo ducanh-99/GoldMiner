@@ -39,7 +39,7 @@ public class LevelButton : MonoBehaviour {
         }
         else {
             if (soundManager != null) {
-                soundManager.PlaySound((int)SoundManager.Sound.Disable_Level);
+                soundManager.PlaySound((int)SoundManager.Sound.Button_Disable);
             }
         }
 

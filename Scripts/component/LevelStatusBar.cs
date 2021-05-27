@@ -10,16 +10,17 @@ public class LevelStatusBar : MonoBehaviour {
     public Text dynamite_text;
     public Text earning_text;
     public Text time_text;
-    public Text target_text;
+    public Text distance_text;
     public Text level_index_text;
 
 
 
     private void Update() {
-        level = InLevelManager.Instance.level;
-        time_text.text ="" + InLevelManager.Instance.time;
-        earning_text.text = "" + InLevelManager.Instance.score;
-        target_text.text = "" + level.required_score;
+        InLevelManager mng = InLevelManager.Instance;
+        level = mng.level;
+        time_text.text ="" + mng.time;
+        earning_text.text = "" + mng.score+" / "+ level.required_score;
+        distance_text.text = "" + mng.distance;
         level_index_text.text = "" + level.index;
         dynamite_text.text = "" + InLevelManager.Instance.dynamite;
     }
